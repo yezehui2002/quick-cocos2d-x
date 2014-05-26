@@ -143,7 +143,9 @@ ifndef $(QUICK_MINI_TARGET)
 		filters/filters/CCTestFilter.cpp \
 		filters/nodes/CCFilteredSprite.cpp \
 		filters/shaders/ccFilterShaders.cpp \
-        network/WebSocket.cpp
+        network/WebSocket.cpp \
+        QXPomelo/CCPomelo.cpp \
+        QXPomelo/QXPomelo.cpp 
 
 endif
 
@@ -157,14 +159,19 @@ ifndef $(QUICK_MINI_TARGET)
     LOCAL_WHOLE_STATIC_LIBRARIES += cocos_chipmunk_static
     LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static
     LOCAL_WHOLE_STATIC_LIBRARIES += libwebsockets_static
-
+    LOCAL_WHOLE_STATIC_LIBRARIES += pomelo_static
 endif
 
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/GUI/CCControlExtension \
                            $(LOCAL_PATH)/GUI/CCEditBox \
-                           $(LOCAL_PATH)/ProjectConfig
+                           $(LOCAL_PATH)/ProjectConfig \
+                           $(LOCAL_PATH)/QXPomelo \
+                            $(LOCAL_PATH)/QXPomelo/pomelo-private \
+                            $(LOCAL_PATH)/QXPomelo/pomelo-protobuf \
+                            $(LOCAL_PATH)/QXPomelo/pomelo-protocol \
+                            $(LOCAL_PATH)/QXPomelo/uv-private
 
 
 ifndef $(QUICK_MINI_TARGET)
@@ -196,7 +203,7 @@ include $(BUILD_STATIC_LIBRARY)
 $(call import-module,cocos2dx)
 $(call import-module,CocosDenshion/android)
 $(call import-module,scripting/lua/proj.android)
-
+$(call import-module,libpomelo)
 ifndef $(QUICK_MINI_TARGET)
     $(call import-module,external/libwebsockets/android)
 endif

@@ -3,7 +3,9 @@ $#include "cocos-ext.h"
 $#include "AssetsManager/AssetsManager.h"
 $#include "filters/cocos2dFilters.h"
 
+
 $using namespace cocos2d::extension;
+
 
 $pfile "extensions/AssetsManager/AssetsManager.tolua"
 $pfile "extensions/GUI/CCControlExtension/CCControl.tolua"
@@ -37,3 +39,5 @@ $pfile "extensions/filters/filters/CCMaskFilter.tolua"
 $pfile "extensions/filters/filters/CCRGBFilter.tolua"
 $pfile "extensions/filters/filters/CCSaturationFilter.tolua"
 $pfile "extensions/filters/filters/CCSharpenFilter.tolua"
+
+$pfile "extensions/QXPomelo-luabinding.tolua"

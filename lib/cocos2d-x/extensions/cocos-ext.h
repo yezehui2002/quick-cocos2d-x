@@ -68,4 +68,7 @@
 #include "CocoStudio/Action/ActionManager.h"
 #include "CocoStudio/Action/CCActionNode.h"
 
+#include "QXPomelo/QXPomelo.h"
+#include "QXPomelo/CCPomelo.h"
+
 #endif /* __COCOS2D_EXT_H__ */

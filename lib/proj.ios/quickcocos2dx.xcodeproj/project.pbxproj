@@ -27,6 +27,12 @@
 		2EBAD93D1918BBDC00FF9BD6 /* ccFilterShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAD92A1918BBDC00FF9BD6 /* ccFilterShaders.cpp */; };
 		49832215187FE2C000733BFB /* CZHelperFunc_luabinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49832213187FE2C000733BFB /* CZHelperFunc_luabinding.cpp */; };
 		49832219187FE2DF00733BFB /* HelperFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49832217187FE2DF00733BFB /* HelperFunc.cpp */; };
+		6D4068F119330D2F003E16AB /* CCPomelo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4068CF19330D2F003E16AB /* CCPomelo.cpp */; };
+		6D4068F219330D2F003E16AB /* QXPomelo-luabinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4068E119330D2F003E16AB /* QXPomelo-luabinding.cpp */; };
+		6D4068F319330D2F003E16AB /* QXPomelo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4068E419330D2F003E16AB /* QXPomelo.cpp */; };
+		6D4068F819330DCA003E16AB /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4068F519330DCA003E16AB /* libjansson.a */; };
+		6D4068F919330DCA003E16AB /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4068F619330DCA003E16AB /* libpomelo.a */; };
+		6D4068FA19330DCA003E16AB /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4068F719330DCA003E16AB /* libuv.a */; };
 		B2DC7993181BA55A001341D6 /* lsqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B2DC798F181BA55A001341D6 /* lsqlite3.c */; };
 		B2DC7994181BA55A001341D6 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B2DC7991181BA55A001341D6 /* sqlite3.c */; };
 		F40118BD180C9E57002A74D5 /* CCBProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F40118BB180C9E57002A74D5 /* CCBProxy.cpp */; };
@@ -475,6 +481,40 @@
 		49832214187FE2C000733BFB /* CZHelperFunc_luabinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZHelperFunc_luabinding.h; sourceTree = "<group>"; };
 		49832217187FE2DF00733BFB /* HelperFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelperFunc.cpp; sourceTree = "<group>"; };
 		49832218187FE2DF00733BFB /* HelperFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperFunc.h; sourceTree = "<group>"; };
+		6D4068CE19330D2F003E16AB /* build_luabinding.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_luabinding.sh; sourceTree = "<group>"; };
+		6D4068CF19330D2F003E16AB /* CCPomelo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCPomelo.cpp; sourceTree = "<group>"; };
+		6D4068D019330D2F003E16AB /* CCPomelo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPomelo.h; sourceTree = "<group>"; };
+		6D4068D119330D2F003E16AB /* jansson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jansson.h; sourceTree = "<group>"; };
+		6D4068D219330D2F003E16AB /* jansson_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jansson_config.h; sourceTree = "<group>"; };
+		6D4068D419330D2F003E16AB /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		6D4068D519330D2F003E16AB /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		6D4068D619330D2F003E16AB /* listener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listener.h; sourceTree = "<group>"; };
+		6D4068D719330D2F003E16AB /* map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = map.h; sourceTree = "<group>"; };
+		6D4068D819330D2F003E16AB /* ngx-queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ngx-queue.h"; sourceTree = "<group>"; };
+		6D4068D919330D2F003E16AB /* transport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transport.h; sourceTree = "<group>"; };
+		6D4068DB19330D2F003E16AB /* pb-util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "pb-util.h"; sourceTree = "<group>"; };
+		6D4068DC19330D2F003E16AB /* pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pb.h; sourceTree = "<group>"; };
+		6D4068DE19330D2F003E16AB /* message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = message.h; sourceTree = "<group>"; };
+		6D4068DF19330D2F003E16AB /* package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = package.h; sourceTree = "<group>"; };
+		6D4068E019330D2F003E16AB /* pomelo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pomelo.h; sourceTree = "<group>"; };
+		6D4068E119330D2F003E16AB /* QXPomelo-luabinding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "QXPomelo-luabinding.cpp"; sourceTree = "<group>"; };
+		6D4068E219330D2F003E16AB /* QXPomelo-luabinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QXPomelo-luabinding.h"; sourceTree = "<group>"; };
+		6D4068E319330D2F003E16AB /* QXPomelo-luabinding.tolua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "QXPomelo-luabinding.tolua"; sourceTree = "<group>"; };
+		6D4068E419330D2F003E16AB /* QXPomelo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QXPomelo.cpp; sourceTree = "<group>"; };
+		6D4068E519330D2F003E16AB /* QXPomelo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QXPomelo.h; sourceTree = "<group>"; };
+		6D4068E719330D2F003E16AB /* ngx-queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ngx-queue.h"; sourceTree = "<group>"; };
+		6D4068E819330D2F003E16AB /* stdint-msvc2008.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "stdint-msvc2008.h"; sourceTree = "<group>"; };
+		6D4068E919330D2F003E16AB /* tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
+		6D4068EA19330D2F003E16AB /* uv-bsd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-bsd.h"; sourceTree = "<group>"; };
+		6D4068EB19330D2F003E16AB /* uv-darwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-darwin.h"; sourceTree = "<group>"; };
+		6D4068EC19330D2F003E16AB /* uv-linux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-linux.h"; sourceTree = "<group>"; };
+		6D4068ED19330D2F003E16AB /* uv-sunos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-sunos.h"; sourceTree = "<group>"; };
+		6D4068EE19330D2F003E16AB /* uv-unix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-unix.h"; sourceTree = "<group>"; };
+		6D4068EF19330D2F003E16AB /* uv-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-win.h"; sourceTree = "<group>"; };
+		6D4068F019330D2F003E16AB /* uv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uv.h; sourceTree = "<group>"; };
+		6D4068F519330DCA003E16AB /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjansson.a; sourceTree = "<group>"; };
+		6D4068F619330DCA003E16AB /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpomelo.a; sourceTree = "<group>"; };
+		6D4068F719330DCA003E16AB /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libuv.a; sourceTree = "<group>"; };
 		B2DC798F181BA55A001341D6 /* lsqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lsqlite3.c; sourceTree = "<group>"; };
 		B2DC7990181BA55A001341D6 /* lsqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsqlite3.h; sourceTree = "<group>"; };
 		B2DC7991181BA55A001341D6 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
@@ -1314,7 +1354,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4068FA19330DCA003E16AB /* libuv.a in Frameworks */,
+				6D4068F819330DCA003E16AB /* libjansson.a in Frameworks */,
 				F45FF34B16C7DD4C00275222 /* libcurl.a in Frameworks */,
+				6D4068F919330DCA003E16AB /* libpomelo.a in Frameworks */,
 				F45A2BA1166B07B600760194 /* Foundation.framework in Frameworks */,
 				F4A8F6BB17F0B1A400110198 /* libwebsockets.a in Frameworks */,
 				F42825BA17575DBE001479DC /* libwebp.a in Frameworks */,
@@ -1431,6 +1474,86 @@
 			path = apptools;
 			sourceTree = "<group>";
 		};
+		6D4068CD19330D2F003E16AB /* QXPomelo */ = {
+			isa = PBXGroup;
+			children = (
+				6D4068CE19330D2F003E16AB /* build_luabinding.sh */,
+				6D4068CF19330D2F003E16AB /* CCPomelo.cpp */,
+				6D4068D019330D2F003E16AB /* CCPomelo.h */,
+				6D4068D119330D2F003E16AB /* jansson.h */,
+				6D4068D219330D2F003E16AB /* jansson_config.h */,
+				6D4068D319330D2F003E16AB /* pomelo-private */,
+				6D4068DA19330D2F003E16AB /* pomelo-protobuf */,
+				6D4068DD19330D2F003E16AB /* pomelo-protocol */,
+				6D4068E019330D2F003E16AB /* pomelo.h */,
+				6D4068E119330D2F003E16AB /* QXPomelo-luabinding.cpp */,
+				6D4068E219330D2F003E16AB /* QXPomelo-luabinding.h */,
+				6D4068E319330D2F003E16AB /* QXPomelo-luabinding.tolua */,
+				6D4068E419330D2F003E16AB /* QXPomelo.cpp */,
+				6D4068E519330D2F003E16AB /* QXPomelo.h */,
+				6D4068E619330D2F003E16AB /* uv-private */,
+				6D4068F019330D2F003E16AB /* uv.h */,
+			);
+			path = QXPomelo;
+			sourceTree = "<group>";
+		};
+		6D4068D319330D2F003E16AB /* pomelo-private */ = {
+			isa = PBXGroup;
+			children = (
+				6D4068D419330D2F003E16AB /* common.h */,
+				6D4068D519330D2F003E16AB /* internal.h */,
+				6D4068D619330D2F003E16AB /* listener.h */,
+				6D4068D719330D2F003E16AB /* map.h */,
+				6D4068D819330D2F003E16AB /* ngx-queue.h */,
+				6D4068D919330D2F003E16AB /* transport.h */,
+			);
+			path = "pomelo-private";
+			sourceTree = "<group>";
+		};
+		6D4068DA19330D2F003E16AB /* pomelo-protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				6D4068DB19330D2F003E16AB /* pb-util.h */,
+				6D4068DC19330D2F003E16AB /* pb.h */,
+			);
+			path = "pomelo-protobuf";
+			sourceTree = "<group>";
+		};
+		6D4068DD19330D2F003E16AB /* pomelo-protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6D4068DE19330D2F003E16AB /* message.h */,
+				6D4068DF19330D2F003E16AB /* package.h */,
+			);
+			path = "pomelo-protocol";
+			sourceTree = "<group>";
+		};
+		6D4068E619330D2F003E16AB /* uv-private */ = {
+			isa = PBXGroup;
+			children = (
+				6D4068E719330D2F003E16AB /* ngx-queue.h */,
+				6D4068E819330D2F003E16AB /* stdint-msvc2008.h */,
+				6D4068E919330D2F003E16AB /* tree.h */,
+				6D4068EA19330D2F003E16AB /* uv-bsd.h */,
+				6D4068EB19330D2F003E16AB /* uv-darwin.h */,
+				6D4068EC19330D2F003E16AB /* uv-linux.h */,
+				6D4068ED19330D2F003E16AB /* uv-sunos.h */,
+				6D4068EE19330D2F003E16AB /* uv-unix.h */,
+				6D4068EF19330D2F003E16AB /* uv-win.h */,
+			);
+			path = "uv-private";
+			sourceTree = "<group>";
+		};
+		6D4068F419330DCA003E16AB /* pomelolib-ios */ = {
+			isa = PBXGroup;
+			children = (
+				6D4068F519330DCA003E16AB /* libjansson.a */,
+				6D4068F619330DCA003E16AB /* libpomelo.a */,
+				6D4068F719330DCA003E16AB /* libuv.a */,
+			);
+			path = "pomelolib-ios";
+			sourceTree = "<group>";
+		};
 		B2DC798E181BA55A001341D6 /* lsqlite3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1501,6 +1624,7 @@
 		F42825A717575DBE001479DC /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				6D4068F419330DCA003E16AB /* pomelolib-ios */,
 				F42825A817575DBE001479DC /* curl */,
 				F42825B217575DBE001479DC /* libraries */,
 				F42825B517575DBE001479DC /* webp */,
@@ -2146,6 +2270,7 @@
 		F45A2E11166B16DC00760194 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6D4068CD19330D2F003E16AB /* QXPomelo */,
 				F42825BB17575DD7001479DC /* AssetsManager */,
 				F4E883441770162500577406 /* CCBReader */,
 				F4E8839E1770162A00577406 /* cocos-ext.h */,
@@ -3427,6 +3552,7 @@
 				F4D1100A169FBF7C00305E28 /* CCLuaValue.cpp in Sources */,
 				F459EA7D180D04D8006CBDF1 /* SBJSON.m in Sources */,
 				F40AFDCE16BD152900565A5E /* CCLuaBridge.cpp in Sources */,
+				6D4068F219330D2F003E16AB /* QXPomelo-luabinding.cpp in Sources */,
 				F40AFDD916BD153500565A5E /* CCLuaObjcBridge.mm in Sources */,
 				F459EA77180D04D8006CBDF1 /* CCNative.mm in Sources */,
 				F47C66C316EB37DB00132435 /* snapshot.c in Sources */,
@@ -3509,6 +3635,7 @@
 				F4ABAE63191A8A7E00FEA3CD /* CCComAudio.cpp in Sources */,
 				F40118C2180C9E62002A74D5 /* lua_cocos2dx_extensions_manual.cpp in Sources */,
 				F4ABAE64191A8A7E00FEA3CD /* CCComController.cpp in Sources */,
+				6D4068F119330D2F003E16AB /* CCPomelo.cpp in Sources */,
 				F4E882C3177015C400577406 /* CCDrawNode.cpp in Sources */,
 				F459EAFE180D04E1006CBDF1 /* cpDampedSpring.c in Sources */,
 				F4ABAE84191A8A7E00FEA3CD /* LayoutReader.cpp in Sources */,
@@ -3642,6 +3769,7 @@
 				F4E88305177015C400577406 /* unzip.cpp in Sources */,
 				F4E88306177015C400577406 /* ZipUtils.cpp in Sources */,
 				F4E88307177015C400577406 /* CCIMEDispatcher.cpp in Sources */,
+				6D4068F319330D2F003E16AB /* QXPomelo.cpp in Sources */,
 				F4ABAE83191A8A7E00FEA3CD /* LabelReader.cpp in Sources */,
 				F459EA7E180D04D8006CBDF1 /* SBJsonBase.m in Sources */,
 				F459EB7C180D0513006CBDF1 /* lfs.c in Sources */,
@@ -3884,12 +4012,14 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/cjson\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/zlib\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/QXPomelo\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/luajit/ios\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/external/libwebsockets/ios/lib\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -3941,12 +4071,14 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/cjson\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/zlib\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/QXPomelo\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/luajit/ios\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/external/libwebsockets/ios/lib\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

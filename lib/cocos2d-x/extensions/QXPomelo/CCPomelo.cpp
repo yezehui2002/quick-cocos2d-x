@@ -147,7 +147,7 @@ void CCPomelo::onDisconnectCallback(pc_client_t *client, const char *event, void
 
 void cc_pomelo_on_connect_cb(pc_connect_t *conn_req, int status){
     s_CCPomelo->lockConnect();
-    printf("data = %p\n", conn_req->data);
+//    printf("data = %p\n", conn_req->data);
     pc_connect_req_destroy(conn_req);
     s_CCPomelo->connect_stage = KCCPomeloConnectStageDone;//连接完成 等待分发状态
     s_CCPomelo->connect_status = status;
@@ -428,7 +428,7 @@ int CCPomelo::connect(const char* host,int port, CCObject* pTarget, SEL_CallFunc
 
 void CCPomelo::connectTick(float dt)
 {
-    CCLOG("主线程连接检测");
+//    CCLOG("主线程连接检测");
     s_CCPomelo->lockConnect();
     if (s_CCPomelo->connect_stage == KCCPomeloConnectStageDone) {//连接成功或失败
         CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector( CCPomelo::connectTick), this);

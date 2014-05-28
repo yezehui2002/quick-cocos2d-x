@@ -14,7 +14,7 @@ void QXPomelo::connect(const char* _addr, unsigned short _port, LUA_FUNCTION lis
     if(ccp_pInstance->connect(_addr, _port, this, callfuncND_selector(QXPomelo::connectCB))) {
         CCLOG("fail to connect server.\n");
     }else{
-        CCLOG("DONE");
+        CCLOG("连接成功！");
     }
 }
 

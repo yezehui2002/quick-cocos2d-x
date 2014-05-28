@@ -7,7 +7,7 @@ extern "C" {
 #define PC_MAP_H
 
 #include <stdlib.h>
-#include "ngx-queue.h"
+#include "pomelo-private/ngx-queue.h"
 
 /**
  * Simple hash map implements.

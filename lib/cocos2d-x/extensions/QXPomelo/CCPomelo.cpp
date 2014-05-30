@@ -121,7 +121,7 @@ void CCPomelo::onAddCallback(pc_client_t *client, const char *event, void *data)
 
 void CCPomelo::onLeaveCallback(pc_client_t *client, const char *event, void *data)
 {
-//    if (!userQueue) {
+//    if (!userQueue) {r
 //        return;
 //    }
     json_t* json = (json_t* )data;

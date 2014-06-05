@@ -45,7 +45,7 @@ end
 
 function SampleScene:createPageView()
 
-    local originLeft  = display.left + 150
+    local originLeft  = display.left + 130
     local left        = originLeft
     local originTop   = display.top - 180
     local top         = originTop
@@ -92,13 +92,20 @@ function SampleScene:createPageView()
         end
 
         pageView:addPage(layout)
-    end 
+    end
 
     local uiLayer = TouchGroup:create()
     uiLayer:addWidget(pageView)
     self:addChild(uiLayer)
 
+    pageView:addEventListenerPageView(function(tagret, eventType)
+        self:updateArrow()
+    end)
+
+    self.pageView = pageView
+
     self:createBackButton()
+    self:createLRButton()
 end
 
 -- helper
@@ -158,6 +165,39 @@ function SampleScene:createBackButton()
         :onButtonClicked(function()
             app:backToMainScene()
         end)
+end
+
+function SampleScene:createLRButton()
+    cc.ui.UIPushButton.new("arrow_left.png", {scale9 = true})
+        :setButtonSize(50, 50)
+        :pos(30, display.cy)
+        :addTo(self, 0, 100)
+        :onButtonClicked(function()
+            self.pageView:scrollToPage(0)
+            self:updateArrow()
+        end)
+
+    cc.ui.UIPushButton.new("arrow_right.png", {scale9 = true})
+        :setButtonSize(50, 50)
+        :pos(display.width - 30, display.cy)
+        :addTo(self, 0, 101)
+        :onButtonClicked(function()
+            self.pageView:scrollToPage(1)
+            self:updateArrow()
+        end)
+
+    self:updateArrow()
+end
+
+function SampleScene:updateArrow()
+    local pageIdx = self.pageView:getCurPageIndex()
+    if 0 == pageIdx then
+        self:getChildByTag(100):setVisible(false)
+        self:getChildByTag(101):setVisible(true)
+    else
+        self:getChildByTag(100):setVisible(true)
+        self:getChildByTag(101):setVisible(false)
+    end
 end
 
 return SampleScene

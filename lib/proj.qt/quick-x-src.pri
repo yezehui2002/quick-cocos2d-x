@@ -142,6 +142,8 @@ $${ROOT}/lib/cocos2d-x/cocos2dx/touch_dispatcher/CCTouchDispatcher.cpp \
 $${ROOT}/lib/cocos2d-x/cocos2dx/touch_dispatcher/CCTouchHandler.cpp \
 $${ROOT}/lib/cocos2d-x/extensions/ProjectConfig/SimulatorConfig.cpp \
 $${ROOT}/lib/cocos2d-x/extensions/AssetsManager/AssetsManager.cpp \
+$${ROOT}/lib/cocos2d-x/extensions/QXPomelo/CCPomelo.cpp \
+$${ROOT}/lib/cocos2d-x/extensions/QXPomelo/QXPomelo.cpp \
 $${ROOT}/lib/cocos2d-x/extensions/CocoStudio/Action/*.cpp \
 $${ROOT}/lib/cocos2d-x/extensions/CocoStudio/Armature/*.cpp \
 $${ROOT}/lib/cocos2d-x/extensions/CocoStudio/Armature/animation/*.cpp \

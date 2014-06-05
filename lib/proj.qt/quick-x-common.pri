@@ -61,6 +61,9 @@ macx {
     COCOS2DX_SYSTEM_LIBS +=  -L$${ROOT}/lib/cocos2d-x/scripting/lua/luajit/mac -lluajit2
     COCOS2DX_SYSTEM_LIBS += -L$${ROOT}/lib/cocos2d-x/cocos2dx/platform/third_party/mac/libraries/ -lwebp
     COCOS2DX_SYSTEM_LIBS += -L$${ROOT}/lib/cocos2d-x/external/libwebsockets/mac/lib/ -lwebsockets
+    COCOS2DX_SYSTEM_LIBS += -L$${ROOT}/lib/cocos2d-x/cocos2dx/platform/third_party/mac/pomelolib-mac/ -luv
+    COCOS2DX_SYSTEM_LIBS += -L$${ROOT}/lib/cocos2d-x/cocos2dx/platform/third_party/mac/pomelolib-mac/ -ljansson
+    COCOS2DX_SYSTEM_LIBS += -L$${ROOT}/lib/cocos2d-x/cocos2dx/platform/third_party/mac/pomelolib-mac/ -lpomelo
 
     CONFIG += objective_c
     COCOS2DX_SYSTEM_LIBS += -framework Foundation -framework AppKit -framework SystemConfiguration  \
@@ -107,6 +110,11 @@ $${CC_ROOT}/cocos2dx/support \
 $${CC_ROOT}/CocosDenshion \
 $${CC_ROOT}/CocosDenshion/include \
 $${CC_ROOT}/extensions \
+$${CC_ROOT}/extensions/QXPomelo \
+$${CC_ROOT}/extensions/QXPomelo/uv-private \
+$${CC_ROOT}/extensions/QXPomelo/pomelo-private \
+$${CC_ROOT}/extensions/QXPomelo/pomelo-protobuf \
+$${CC_ROOT}/extensions/QXPomelo/pomelo-protocol \
 $${CC_ROOT}/extensions/GUI \
 $${CC_ROOT}/extensions/GUI/CCControlExtension \
 $${CC_ROOT}/extensions/GUI/CCEditBox \

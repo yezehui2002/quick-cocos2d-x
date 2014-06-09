@@ -5,15 +5,11 @@ $pfile "extensions/cocos-ext.tolua"
 
 $[
 
-function tolua.getcfunction(cls, name)
-    local cname = name .. "_C__"
-    return cls[cname]
-end
-
-function tolua.resetcfunction(cls, name)
-    local cname = name .. "_C__"
-    local f = cls[cname]
-    if f then cls[name] = f end
+function tolua.resetcfunction(cls, methodname)
+    local cfunction = tolua.getcfunction(cls, methodname)
+    if cfunction then
+        cls[methodname] = cfunction
+    end
 end
 
 $]

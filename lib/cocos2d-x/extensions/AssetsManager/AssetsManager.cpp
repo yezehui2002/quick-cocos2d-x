@@ -415,8 +415,11 @@ int assetsManagerProgressFunc(void *ptr, double totalToDownload, double nowDownl
     progressData->percent = (int)(nowDownloaded/totalToDownload*100);
     progressData->manager = manager;
     msg->obj = progressData;
+    if (manager->lastPercent != progressData->percent) {
+        manager->_schedule->sendMessage(msg);
+    }
+    manager->lastPercent = progressData->percent;
     
-    manager->_schedule->sendMessage(msg);
     
     CCLOG("downloading... %d%%", (int)(nowDownloaded/totalToDownload*100));
     

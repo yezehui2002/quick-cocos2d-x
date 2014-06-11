@@ -193,7 +193,7 @@ private:
     std::string _versionFileUrl;
     
     std::string _downloadedVersion;
-    
+    int lastPercent;
     CURL *_curl;
     Helper *_schedule;
     pthread_t *_tid;

@@ -145,7 +145,9 @@ LOCAL_SRC_FILES := \
 	filters/filters/CCTestFilter.cpp \
 	filters/nodes/CCFilteredSprite.cpp \
 	filters/shaders/ccFilterShaders.cpp \
-    network/WebSocket.cpp
+    network/WebSocket.cpp \
+    QXPomelo/CCPomelo.cpp \
+    QXPomelo/QXPomelo.cpp
 
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
@@ -172,7 +174,12 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/CCArmature/external_tool/Json \
                            $(LOCAL_PATH)/CCArmature/external_tool/Json/lib_json \
                            $(LOCAL_PATH)/CCArmature/utils \
-                           $(LOCAL_PATH)/filters
+                           $(LOCAL_PATH)/filters \
+                           $(LOCAL_PATH)/QXPomelo \
+                           $(LOCAL_PATH)/QXPomelo/pomelo-private \
+                           $(LOCAL_PATH)/QXPomelo/pomelo-protobuf \
+                           $(LOCAL_PATH)/QXPomelo/pomelo-protocol \
+                           $(LOCAL_PATH)/QXPomelo/uv-private
 
 
 LOCAL_C_INCLUDES = $(LOCAL_EXPORT_C_INCLUDES)

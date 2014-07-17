@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Cocos2d
-** Generated automatically by tolua++-1.0.92 on Wed Jul  9 13:06:59 2014.
+** Generated automatically by tolua++-1.0.92 on Wed Jul 16 17:32:26 2014.
 */
 
 /****************************************************************************
@@ -46,7 +46,9 @@ using namespace CocosDenshion;
 #include "cocos-ext.h"
 #include "AssetsManager/AssetsManager.h"
 #include "filters/cocos2dFilters.h"
+#include "spine/SkeletonAnimation.h"
 using namespace cocos2d::extension;
+using namespace spine;
 
 /* function to release collected object via destructor */
 #ifdef __cplusplus
@@ -72,6 +74,13 @@ static int tolua_collect_CCAtlasNode (lua_State* tolua_S)
     return 0;
 }
 
+static int tolua_collect_CCBool (lua_State* tolua_S)
+{
+ CCBool* self = (CCBool*) tolua_tousertype(tolua_S,1,0);
+    Mtolua_delete(self);
+    return 0;
+}
+
 static int tolua_collect_CCParticleSystemQuad (lua_State* tolua_S)
 {
  CCParticleSystemQuad* self = (CCParticleSystemQuad*) tolua_tousertype(tolua_S,1,0);
@@ -79,9 +88,9 @@ static int tolua_collect_CCParticleSystemQuad (lua_State* tolua_S)
     return 0;
 }
 
-static int tolua_collect_CCBool (lua_State* tolua_S)
+static int tolua_collect_cocos2d__CCRect (lua_State* tolua_S)
 {
- CCBool* self = (CCBool*) tolua_tousertype(tolua_S,1,0);
+ cocos2d::CCRect* self = (cocos2d::CCRect*) tolua_tousertype(tolua_S,1,0);
     Mtolua_delete(self);
     return 0;
 }
@@ -468,6 +477,7 @@ static void tolua_reg_types (lua_State* tolua_S)
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCInteger)), "CCInteger");
  tolua_usertype(tolua_S,"CCParticleFlower");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCParticleFlower)), "CCParticleFlower");
+ tolua_usertype(tolua_S,"cocos2d::CCRect");
  tolua_usertype(tolua_S,"CCLiquid");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCLiquid)), "CCLiquid");
  tolua_usertype(tolua_S,"CCEaseBounce");
@@ -524,6 +534,8 @@ static void tolua_reg_types (lua_State* tolua_S)
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCRemoveSelf)), "CCRemoveSelf");
  tolua_usertype(tolua_S,"CCTransitionMoveInR");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTransitionMoveInR)), "CCTransitionMoveInR");
+ tolua_usertype(tolua_S,"spAnimationStateData");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(spAnimationStateData)), "spAnimationStateData");
  tolua_usertype(tolua_S,"CCTransitionFade");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTransitionFade)), "CCTransitionFade");
  tolua_usertype(tolua_S,"CCSkewBy");
@@ -550,6 +562,8 @@ static void tolua_reg_types (lua_State* tolua_S)
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTransitionSlideInR)), "CCTransitionSlideInR");
  tolua_usertype(tolua_S,"CCTransitionMoveInT");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTransitionMoveInT)), "CCTransitionMoveInT");
+ tolua_usertype(tolua_S,"spAtlas");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(spAtlas)), "spAtlas");
  tolua_usertype(tolua_S,"CCLayerGradient");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCLayerGradient)), "CCLayerGradient");
  tolua_usertype(tolua_S,"CCShapeNode");
@@ -590,13 +604,21 @@ static void tolua_reg_types (lua_State* tolua_S)
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTransitionPageTurn)), "CCTransitionPageTurn");
  tolua_usertype(tolua_S,"CCSpawn");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCSpawn)), "CCSpawn");
- tolua_usertype(tolua_S,"ccFontStroke");
- toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(ccFontStroke)), "ccFontStroke");
  tolua_usertype(tolua_S,"cocos2d::CCObject");
- tolua_usertype(tolua_S,"CCTintTo");
- toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTintTo)), "CCTintTo");
+ tolua_usertype(tolua_S,"SkeletonRenderer");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(SkeletonRenderer)), "SkeletonRenderer");
  tolua_usertype(tolua_S,"CCEditBox");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCEditBox)), "CCEditBox");
+ tolua_usertype(tolua_S,"ccFontStroke");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(ccFontStroke)), "ccFontStroke");
+ tolua_usertype(tolua_S,"spTrackEntry");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(spTrackEntry)), "spTrackEntry");
+ tolua_usertype(tolua_S,"spSkeletonData");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(spSkeletonData)), "spSkeletonData");
+ tolua_usertype(tolua_S,"CCTintTo");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTintTo)), "CCTintTo");
+ tolua_usertype(tolua_S,"SkeletonAnimation");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(SkeletonAnimation)), "SkeletonAnimation");
  tolua_usertype(tolua_S,"CCControlButton");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCControlButton)), "CCControlButton");
  tolua_usertype(tolua_S,"CCSaturationFilter");
@@ -59878,6 +59900,422 @@ static int tolua_Cocos2d_CCSharpenFilter_initSprite00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: createWithData of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_createWithData00
+static int tolua_Cocos2d_SkeletonAnimation_createWithData00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isusertype(tolua_S,2,"spSkeletonData",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  spSkeletonData* skeletonData = ((spSkeletonData*)  tolua_tousertype(tolua_S,2,0));
+  {
+   SkeletonAnimation* tolua_ret = (SkeletonAnimation*)  SkeletonAnimation::createWithData(skeletonData);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"SkeletonAnimation");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'createWithData'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: createWithFile of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_createWithFile00
+static int tolua_Cocos2d_SkeletonAnimation_createWithFile00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isusertype(tolua_S,3,"spAtlas",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,4,1,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const char* skeletonDataFile = ((const char*)  tolua_tostring(tolua_S,2,0));
+  spAtlas* atlas = ((spAtlas*)  tolua_tousertype(tolua_S,3,0));
+  float scale = ((float)  tolua_tonumber(tolua_S,4,0));
+  {
+   SkeletonAnimation* tolua_ret = (SkeletonAnimation*)  SkeletonAnimation::createWithFile(skeletonDataFile,atlas,scale);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"SkeletonAnimation");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'createWithFile'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: createWithFile of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_createWithFile01
+static int tolua_Cocos2d_SkeletonAnimation_createWithFile01(lua_State* tolua_S)
+{
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isstring(tolua_S,3,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,4,1,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+ {
+  const char* skeletonDataFile = ((const char*)  tolua_tostring(tolua_S,2,0));
+  const char* atlasFile = ((const char*)  tolua_tostring(tolua_S,3,0));
+  float scale = ((float)  tolua_tonumber(tolua_S,4,0));
+  {
+   SkeletonAnimation* tolua_ret = (SkeletonAnimation*)  SkeletonAnimation::createWithFile(skeletonDataFile,atlasFile,scale);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"SkeletonAnimation");
+  }
+ }
+ return 1;
+tolua_lerror:
+ return tolua_Cocos2d_SkeletonAnimation_createWithFile00(tolua_S);
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setAnimationStateData of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_setAnimationStateData00
+static int tolua_Cocos2d_SkeletonAnimation_setAnimationStateData00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isusertype(tolua_S,2,"spAnimationStateData",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  spAnimationStateData* stateData = ((spAnimationStateData*)  tolua_tousertype(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setAnimationStateData'", NULL);
+#endif
+  {
+   self->setAnimationStateData(stateData);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setAnimationStateData'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setMix of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_setMix00
+static int tolua_Cocos2d_SkeletonAnimation_setMix00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isstring(tolua_S,3,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,4,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  const char* fromAnimation = ((const char*)  tolua_tostring(tolua_S,2,0));
+  const char* toAnimation = ((const char*)  tolua_tostring(tolua_S,3,0));
+  float duration = ((float)  tolua_tonumber(tolua_S,4,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setMix'", NULL);
+#endif
+  {
+   self->setMix(fromAnimation,toAnimation,duration);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setMix'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setAnimation of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_setAnimation00
+static int tolua_Cocos2d_SkeletonAnimation_setAnimation00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isstring(tolua_S,3,0,&tolua_err) ||
+     !tolua_isboolean(tolua_S,4,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  int trackIndex = ((int)  tolua_tonumber(tolua_S,2,0));
+  const char* name = ((const char*)  tolua_tostring(tolua_S,3,0));
+  bool loop = ((bool)  tolua_toboolean(tolua_S,4,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setAnimation'", NULL);
+#endif
+  {
+   spTrackEntry* tolua_ret = (spTrackEntry*)  self->setAnimation(trackIndex,name,loop);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"spTrackEntry");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setAnimation'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: addAnimation of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_addAnimation00
+static int tolua_Cocos2d_SkeletonAnimation_addAnimation00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isstring(tolua_S,3,0,&tolua_err) ||
+     !tolua_isboolean(tolua_S,4,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,5,1,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,6,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  int trackIndex = ((int)  tolua_tonumber(tolua_S,2,0));
+  const char* name = ((const char*)  tolua_tostring(tolua_S,3,0));
+  bool loop = ((bool)  tolua_toboolean(tolua_S,4,0));
+  float delay = ((float)  tolua_tonumber(tolua_S,5,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'addAnimation'", NULL);
+#endif
+  {
+   spTrackEntry* tolua_ret = (spTrackEntry*)  self->addAnimation(trackIndex,name,loop,delay);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"spTrackEntry");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'addAnimation'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getCurrent of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_getCurrent00
+static int tolua_Cocos2d_SkeletonAnimation_getCurrent00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,1,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  int trackIndex = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getCurrent'", NULL);
+#endif
+  {
+   spTrackEntry* tolua_ret = (spTrackEntry*)  self->getCurrent(trackIndex);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"spTrackEntry");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getCurrent'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: clearTracks of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_clearTracks00
+static int tolua_Cocos2d_SkeletonAnimation_clearTracks00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'clearTracks'", NULL);
+#endif
+  {
+   self->clearTracks();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'clearTracks'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: clearTrack of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_clearTrack00
+static int tolua_Cocos2d_SkeletonAnimation_clearTrack00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,1,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  int trackIndex = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'clearTrack'", NULL);
+#endif
+  {
+   self->clearTrack(trackIndex);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'clearTrack'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setScriptHandler of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_setScriptHandler00
+static int tolua_Cocos2d_SkeletonAnimation_setScriptHandler00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !toluafix_isfunction(tolua_S,2,"LUA_FUNCTION",0,&tolua_err)) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  LUA_FUNCTION handler = (  toluafix_ref_function(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setScriptHandler'", NULL);
+#endif
+  {
+   self->setScriptHandler(handler);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setScriptHandler'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: boundingBoxOfSlot of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_boundingBoxOfSlot00
+static int tolua_Cocos2d_SkeletonAnimation_boundingBoxOfSlot00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  const char* slotName = ((const char*)  tolua_tostring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'boundingBoxOfSlot'", NULL);
+#endif
+  {
+   cocos2d::CCRect tolua_ret = (cocos2d::CCRect)  self->boundingBoxOfSlot(slotName);
+   {
+#ifdef __cplusplus
+    void* tolua_obj = Mtolua_new((cocos2d::CCRect)(tolua_ret));
+     tolua_pushusertype(tolua_S,tolua_obj,"cocos2d::CCRect");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#else
+    void* tolua_obj = tolua_copy(tolua_S,(void*)&tolua_ret,sizeof(cocos2d::CCRect));
+     tolua_pushusertype(tolua_S,tolua_obj,"cocos2d::CCRect");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#endif
+   }
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'boundingBoxOfSlot'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: new of class  QXPomelo */
 #ifndef TOLUA_DISABLE_tolua_Cocos2d_QXPomelo_new00
 static int tolua_Cocos2d_QXPomelo_new00(lua_State* tolua_S)
@@ -63126,6 +63564,21 @@ TOLUA_API int tolua_Cocos2d_open (lua_State* tolua_S)
    tolua_function(tolua_S,"setParameter",tolua_Cocos2d_CCSharpenFilter_setParameter00);
    tolua_function(tolua_S,"setParameter",tolua_Cocos2d_CCSharpenFilter_setParameter01);
    tolua_function(tolua_S,"initSprite",tolua_Cocos2d_CCSharpenFilter_initSprite00);
+  tolua_endmodule(tolua_S);
+  tolua_cclass(tolua_S,"SkeletonAnimation","SkeletonAnimation","SkeletonRenderer",NULL);
+  tolua_beginmodule(tolua_S,"SkeletonAnimation");
+   tolua_function(tolua_S,"createWithData",tolua_Cocos2d_SkeletonAnimation_createWithData00);
+   tolua_function(tolua_S,"createWithFile",tolua_Cocos2d_SkeletonAnimation_createWithFile00);
+   tolua_function(tolua_S,"createWithFile",tolua_Cocos2d_SkeletonAnimation_createWithFile01);
+   tolua_function(tolua_S,"setAnimationStateData",tolua_Cocos2d_SkeletonAnimation_setAnimationStateData00);
+   tolua_function(tolua_S,"setMix",tolua_Cocos2d_SkeletonAnimation_setMix00);
+   tolua_function(tolua_S,"setAnimation",tolua_Cocos2d_SkeletonAnimation_setAnimation00);
+   tolua_function(tolua_S,"addAnimation",tolua_Cocos2d_SkeletonAnimation_addAnimation00);
+   tolua_function(tolua_S,"getCurrent",tolua_Cocos2d_SkeletonAnimation_getCurrent00);
+   tolua_function(tolua_S,"clearTracks",tolua_Cocos2d_SkeletonAnimation_clearTracks00);
+   tolua_function(tolua_S,"clearTrack",tolua_Cocos2d_SkeletonAnimation_clearTrack00);
+   tolua_function(tolua_S,"setScriptHandler",tolua_Cocos2d_SkeletonAnimation_setScriptHandler00);
+   tolua_function(tolua_S,"boundingBoxOfSlot",tolua_Cocos2d_SkeletonAnimation_boundingBoxOfSlot00);
   tolua_endmodule(tolua_S);
   #ifdef __cplusplus
   tolua_cclass(tolua_S,"QXPomelo","QXPomelo","cocos2d::CCObject",tolua_collect_QXPomelo);

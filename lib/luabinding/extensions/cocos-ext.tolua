@@ -3,8 +3,10 @@ $#include "cocos-ext.h"
 $#include "AssetsManager/AssetsManager.h"
 $#include "filters/cocos2dFilters.h"
 
+$#include "spine/SkeletonAnimation.h"
 
 $using namespace cocos2d::extension;
+$using namespace spine;
 
 
 $pfile "extensions/AssetsManager/AssetsManager.tolua"
@@ -40,4 +42,5 @@ $pfile "extensions/filters/filters/CCRGBFilter.tolua"
 $pfile "extensions/filters/filters/CCSaturationFilter.tolua"
 $pfile "extensions/filters/filters/CCSharpenFilter.tolua"
 
+$pfile "extensions/SkeletonAnimation.tolua"
 $pfile "extensions/QXPomelo-luabinding.tolua"

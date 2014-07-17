@@ -27,6 +27,9 @@
 		2EBAD93D1918BBDC00FF9BD6 /* ccFilterShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAD92A1918BBDC00FF9BD6 /* ccFilterShaders.cpp */; };
 		49832215187FE2C000733BFB /* CZHelperFunc_luabinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49832213187FE2C000733BFB /* CZHelperFunc_luabinding.cpp */; };
 		49832219187FE2DF00733BFB /* HelperFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49832217187FE2DF00733BFB /* HelperFunc.cpp */; };
+		6DE834A11975301600347CEA /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE8349E1975301600347CEA /* libjansson.a */; };
+		6DE834A21975301600347CEA /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE8349F1975301600347CEA /* libpomelo.a */; };
+		6DE834A31975301600347CEA /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE834A01975301600347CEA /* libuv.a */; };
 		6DF528CA197502EC006D8584 /* CCPomelo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF528A7197502EC006D8584 /* CCPomelo.cpp */; };
 		6DF528CB197502EC006D8584 /* QXPomelo-luabinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF528BA197502EC006D8584 /* QXPomelo-luabinding.cpp */; };
 		6DF528CC197502EC006D8584 /* QXPomelo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF528BD197502EC006D8584 /* QXPomelo.cpp */; };
@@ -513,6 +516,9 @@
 		49832214187FE2C000733BFB /* CZHelperFunc_luabinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZHelperFunc_luabinding.h; sourceTree = "<group>"; };
 		49832217187FE2DF00733BFB /* HelperFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelperFunc.cpp; sourceTree = "<group>"; };
 		49832218187FE2DF00733BFB /* HelperFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperFunc.h; sourceTree = "<group>"; };
+		6DE8349E1975301600347CEA /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = "../cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios/libjansson.a"; sourceTree = "<group>"; };
+		6DE8349F1975301600347CEA /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = "../cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios/libpomelo.a"; sourceTree = "<group>"; };
+		6DE834A01975301600347CEA /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = "../cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios/libuv.a"; sourceTree = "<group>"; };
 		6DF528A6197502EC006D8584 /* build_luabinding.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_luabinding.sh; sourceTree = "<group>"; };
 		6DF528A7197502EC006D8584 /* CCPomelo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCPomelo.cpp; sourceTree = "<group>"; };
 		6DF528A8197502EC006D8584 /* CCPomelo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPomelo.h; sourceTree = "<group>"; };
@@ -1456,6 +1462,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DE834A11975301600347CEA /* libjansson.a in Frameworks */,
+				6DE834A21975301600347CEA /* libpomelo.a in Frameworks */,
+				6DE834A31975301600347CEA /* libuv.a in Frameworks */,
 				F45FF34B16C7DD4C00275222 /* libcurl.a in Frameworks */,
 				F45A2BA1166B07B600760194 /* Foundation.framework in Frameworks */,
 				F4A8F6BB17F0B1A400110198 /* libwebsockets.a in Frameworks */,
@@ -2318,6 +2327,9 @@
 		F45A2B9F166B07B600760194 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DE8349E1975301600347CEA /* libjansson.a */,
+				6DE8349F1975301600347CEA /* libpomelo.a */,
+				6DE834A01975301600347CEA /* libuv.a */,
 				F45FF34A16C7DD4C00275222 /* libcurl.a */,
 				F45A2BA0166B07B600760194 /* Foundation.framework */,
 			);
@@ -4296,7 +4308,6 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/cjson\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/zlib\"",
-					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/pomelo-ios\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/QXPomelo\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/spine/spine-c/include\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/spine/spine-cocos2dx/2/src\"",
@@ -4306,6 +4317,8 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/luajit/ios\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/external/libwebsockets/ios/lib\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios\"",
+					"/Users/yezehui2002/KingSoft/Quick/lib/cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -4357,7 +4370,6 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/cjson\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/lua_extensions/zlib\"",
-					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/pomelo-ios\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/QXPomelo\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/spine/spine-c/include\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/extensions/spine/spine-cocos2dx/2/src\"",
@@ -4367,6 +4379,8 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/scripting/lua/luajit/ios\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/external/libwebsockets/ios/lib\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios\"",
+					"/Users/yezehui2002/KingSoft/Quick/lib/cocos2d-x/cocos2dx/platform/third_party/ios/pomelolib-ios",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

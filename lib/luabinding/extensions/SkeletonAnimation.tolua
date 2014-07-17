@@ -1,0 +1,18 @@
+class SkeletonAnimation: public SkeletonRenderer {
+    public:
+        static SkeletonAnimation* createWithData (spSkeletonData* skeletonData);
+        static SkeletonAnimation* createWithFile (const char* skeletonDataFile, spAtlas* atlas, float scale = 0);
+        static SkeletonAnimation* createWithFile (const char* skeletonDataFile, const char* atlasFile, float scale = 0);
+        
+        void setAnimationStateData (spAnimationStateData* stateData);
+        void setMix (const char* fromAnimation, const char* toAnimation, float duration);
+        
+        spTrackEntry* setAnimation (int trackIndex, const char* name, bool loop);
+        spTrackEntry* addAnimation (int trackIndex, const char* name, bool loop, float delay = 0);
+        spTrackEntry* getCurrent (int trackIndex = 0);
+        void clearTracks ();
+        void clearTrack (int trackIndex = 0);
+        
+        void setScriptHandler(LUA_FUNCTION handler); //<绑定lua回调
+        cocos2d::CCRect boundingBoxOfSlot(const char* slotName);
+}

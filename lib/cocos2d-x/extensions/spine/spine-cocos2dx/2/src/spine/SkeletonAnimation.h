@@ -71,6 +71,8 @@ namespace spine {
         void clearTracks ();
         void clearTrack (int trackIndex = 0);
         
+        bool setSkin (const char* skinName);
+        
         StartListener startListener;
         EndListener endListener;
         CompleteListener completeListener;

@@ -153,6 +153,10 @@ namespace spine {
         state->listener = animationCallback;
     }
     
+    bool SkeletonAnimation::setSkin(const char *skinName){
+        return super::setSkin(skinName);
+    }
+    
     void SkeletonAnimation::setMix (const char* fromAnimation, const char* toAnimation, float duration) {
         spAnimationStateData_setMixByName(state->data, fromAnimation, toAnimation, duration);
     }

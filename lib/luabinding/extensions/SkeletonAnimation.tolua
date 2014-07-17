@@ -12,6 +12,8 @@ class SkeletonAnimation: public SkeletonRenderer {
         spTrackEntry* getCurrent (int trackIndex = 0);
         void clearTracks ();
         void clearTrack (int trackIndex = 0);
+
+        bool setSkin (const char* skinName);
         
         void setScriptHandler(LUA_FUNCTION handler); //<绑定lua回调
         cocos2d::CCRect boundingBoxOfSlot(const char* slotName);

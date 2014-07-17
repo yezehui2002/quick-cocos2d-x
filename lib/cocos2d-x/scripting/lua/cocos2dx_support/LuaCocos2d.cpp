@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Cocos2d
-** Generated automatically by tolua++-1.0.92 on Thu Jul 17 09:32:47 2014.
+** Generated automatically by tolua++-1.0.92 on Thu Jul 17 13:52:16 2014.
 */
 
 /****************************************************************************
@@ -60239,6 +60239,40 @@ static int tolua_Cocos2d_SkeletonAnimation_clearTrack00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: setSkin of class  SkeletonAnimation */
+#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_setSkin00
+static int tolua_Cocos2d_SkeletonAnimation_setSkin00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
+  const char* skinName = ((const char*)  tolua_tostring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setSkin'", NULL);
+#endif
+  {
+   bool tolua_ret = (bool)  self->setSkin(skinName);
+   tolua_pushboolean(tolua_S,(bool)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setSkin'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: setScriptHandler of class  SkeletonAnimation */
 #ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_setScriptHandler00
 static int tolua_Cocos2d_SkeletonAnimation_setScriptHandler00(lua_State* tolua_S)
@@ -63577,6 +63611,7 @@ TOLUA_API int tolua_Cocos2d_open (lua_State* tolua_S)
    tolua_function(tolua_S,"getCurrent",tolua_Cocos2d_SkeletonAnimation_getCurrent00);
    tolua_function(tolua_S,"clearTracks",tolua_Cocos2d_SkeletonAnimation_clearTracks00);
    tolua_function(tolua_S,"clearTrack",tolua_Cocos2d_SkeletonAnimation_clearTrack00);
+   tolua_function(tolua_S,"setSkin",tolua_Cocos2d_SkeletonAnimation_setSkin00);
    tolua_function(tolua_S,"setScriptHandler",tolua_Cocos2d_SkeletonAnimation_setScriptHandler00);
    tolua_function(tolua_S,"boundingBoxOfSlot",tolua_Cocos2d_SkeletonAnimation_boundingBoxOfSlot00);
   tolua_endmodule(tolua_S);

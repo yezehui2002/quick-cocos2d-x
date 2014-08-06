@@ -6,10 +6,11 @@
 #include "objects/DBTransform.h"
 #include "utils//TransformUtil.h"
 #include <cmath>
+#include "../Bone.h"
 
 namespace dragonBones
 {
-    class Bone;
+//    class Bone;
     class TransformTimeline;
     class TransformFrame;
     /** @private */

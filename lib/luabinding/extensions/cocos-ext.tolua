@@ -3,10 +3,12 @@ $#include "cocos-ext.h"
 $#include "AssetsManager/AssetsManager.h"
 $#include "filters/cocos2dFilters.h"
 $#include "DragonBones/DragonBonesHeaders.h"
+$#include "spine/SkeletonAnimation.h"
 
 $using namespace cocos2d::extension;
 $using namespace dragonBones;
 $using namespace std;
+$using namespace spine;
 
 $pfile "extensions/AssetsManager/AssetsManager.tolua"
 $pfile "extensions/GUI/CCControlExtension/CCControl.tolua"
@@ -40,6 +42,9 @@ $pfile "extensions/filters/filters/CCMaskFilter.tolua"
 $pfile "extensions/filters/filters/CCRGBFilter.tolua"
 $pfile "extensions/filters/filters/CCSaturationFilter.tolua"
 $pfile "extensions/filters/filters/CCSharpenFilter.tolua"
+
+$pfile "extensions/SkeletonAnimation.tolua"
+$pfile "extensions/QXPomelo-luabinding.tolua"
 
 $pfile "extensions/DragonBones/Armature.tolua"
 $pfile "extensions/DragonBones/Bone.tolua"

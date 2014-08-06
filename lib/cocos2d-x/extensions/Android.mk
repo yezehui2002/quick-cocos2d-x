@@ -146,6 +146,8 @@ LOCAL_SRC_FILES := \
     filters/nodes/CCFilteredSprite.cpp \
     filters/shaders/ccFilterShaders.cpp \
     network/WebSocket.cpp \
+    QXPomelo/CCPomelo.cpp \
+    QXPomelo/QXPomelo.cpp \
     DragonBones/animation/Animation.cpp \
     DragonBones/animation/AnimationState.cpp \
     DragonBones/animation/TimelineState.cpp \
@@ -202,7 +204,12 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/CCArmature/external_tool/Json/lib_json \
                            $(LOCAL_PATH)/CCArmature/utils \
                            $(LOCAL_PATH)/filters \
-                           $(LOCAL_PATH)/DragonBones
+                           $(LOCAL_PATH)/DragonBones \
+                           $(LOCAL_PATH)/QXPomelo \
+                           $(LOCAL_PATH)/QXPomelo/pomelo-private \
+                           $(LOCAL_PATH)/QXPomelo/pomelo-protobuf \
+                           $(LOCAL_PATH)/QXPomelo/pomelo-protocol \
+                           $(LOCAL_PATH)/QXPomelo/uv-private
 
 
 LOCAL_C_INCLUDES = $(LOCAL_EXPORT_C_INCLUDES)

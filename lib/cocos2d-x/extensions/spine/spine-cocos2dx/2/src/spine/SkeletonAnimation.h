@@ -72,6 +72,7 @@ namespace spine {
         void clearTrack (int trackIndex = 0);
         
         bool setSkin (const char* skinName);
+        void setTimeScale(float ts);
         
         StartListener startListener;
         EndListener endListener;

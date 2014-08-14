@@ -157,6 +157,10 @@ namespace spine {
         return super::setSkin(skinName);
     }
     
+    void SkeletonAnimation::setTimeScale(float ts){
+        timeScale = ts;
+    }
+    
     void SkeletonAnimation::setMix (const char* fromAnimation, const char* toAnimation, float duration) {
         spAnimationStateData_setMixByName(state->data, fromAnimation, toAnimation, duration);
     }

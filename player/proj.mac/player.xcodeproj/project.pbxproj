@@ -249,7 +249,7 @@
 				ORGANIZATIONNAME = quick.cocoachina.com;
 				TargetAttributes = {
 					F44C957115F49004004D4151 = {
-						DevelopmentTeam = U7E7529TA5;
+						DevelopmentTeam = U78FU24K2H;
 					};
 				};
 			};
@@ -388,7 +388,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zehui Ye (7TRM99267H)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -442,7 +442,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zehui Ye (7TRM99267H)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;

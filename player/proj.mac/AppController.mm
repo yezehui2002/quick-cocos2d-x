@@ -84,9 +84,9 @@ using namespace cocos2d::extra;
     [self updateProjectConfigFromCommandLineArgs:&projectConfig];
     [self createWindowAndGLView];
     [self startup];
-    [self updateOpenRect];
-    [self initUI];
-    [self updateUI];
+//    [self updateOpenRect];
+//    [self initUI];
+//    [self updateUI];
 
     [window orderFrontRegardless];
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
@@ -164,7 +164,7 @@ using namespace cocos2d::extra;
 
     // set window parameters
     [window setContentView:glView];
-    [window setTitle:@"quick player"];
+    [window setTitle:@"手游调试器"];
     [window center];
 
     if (projectConfig.getProjectDir().length())
@@ -368,7 +368,7 @@ using namespace cocos2d::extra;
         [menuRecents insertItem:item atIndex:0];
     }
 
-    [window setTitle:[NSString stringWithFormat:@"quick player (%0.0f%%)", projectConfig.getFrameScale() * 100]];
+    [window setTitle:[NSString stringWithFormat:@"七尘斋手游调试工具 (%0.0f%%)", projectConfig.getFrameScale() * 100]];
 }
 
 - (void) showModelSheet
@@ -547,22 +547,22 @@ using namespace cocos2d::extra;
 
 - (void) welcomeSamples
 {
-    string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
-    if (path.length())
-    {
-        path.append("samples");
-        [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding]];
-    }
+//    string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
+//    if (path.length())
+//    {
+//        path.append("samples");
+//        [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding]];
+//    }
 }
 
 - (void) welcomeGetStarted
 {
-    CCNative::openURL("http://cn.cocos2d-x.org/tutorial/index?type=quick-cocos2d-x");
+    //CCNative::openURL("http://cn.cocos2d-x.org/tutorial/index?type=quick-cocos2d-x");
 }
 
 - (void) welcomeCommunity
 {
-    CCNative::openURL("http://www.cocoachina.com/bbs/thread.php?fid=56");
+    //CCNative::openURL("http://www.cocoachina.com/bbs/thread.php?fid=56");
 }
 
 - (void) welcomeOpenRecent:(cocos2d::CCObject *)object

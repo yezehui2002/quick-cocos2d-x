@@ -9,8 +9,12 @@ local UIDemoApp = class("UIDemoApp", cc.mvc.AppBase)
 function UIDemoApp:ctor()
     UIDemoApp.super.ctor(self)
     self.scenes_ = {
+        "TestUIPageViewScene",
+        "TestUIListViewScene",
+        "TestUIScrollViewScene",
         "TestUIImageScene",
         "TestUIButtonScene",
+        "TestUIButtonMoreScene",
         "TestUISliderScene",
     }
 end

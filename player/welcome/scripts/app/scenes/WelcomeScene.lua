@@ -7,10 +7,10 @@ function WelcomeScene:ctor()
     local bg = CCLayerColor:create(ccc4(255, 255, 255, 255))
     self:addChild(bg)
 
-    self:createLogo()
-    self:createBannderAds()
+    -- self:createLogo()
+    -- self:createBannderAds()
     self:createButtons()
-    self:createLine()
+    -- self:createLine()
     self:createCopyright()
 
     local recents = __G__OPEN_RECENTS__
@@ -40,7 +40,7 @@ function WelcomeScene:createOpenRecents(recents)
         color = ccc3(48, 48, 48),
         size = 18,
     })
-    label:align(display.LEFT_TOP, display.left + 660, display.top - 330)
+    label:align(display.LEFT_TOP, display.left + 460, display.top - 230)
     label:addTo(self)
 
     for i, path in ipairs(recents) do
@@ -52,7 +52,7 @@ function WelcomeScene:createOpenRecents(recents)
             color = ccc3(48, 48, 48),
             size = 14,
         })
-        label:align(display.LEFT_TOP, display.left + 680, display.top - 360 - 28 * (i - 1))
+        label:align(display.LEFT_TOP, display.left + 480, display.top - 260 - 28 * (i - 1))
         label:addTo(self)
 
         -- touch event
@@ -81,7 +81,7 @@ end
 
 function WelcomeScene:createLine()
     local line = CCLayerColor:create(ccc4(153, 153, 153, 255), 1, 240)
-    line:setPosition(display.left + 640, display.top - 580)
+    line:setPosition(display.left + 640, display.top - 280)
     self:addChild(line)
 end
 
@@ -89,45 +89,45 @@ function WelcomeScene:createButtons()
     local left = display.left + 114
     local top = display.top - 386
 
-    local newProjectButton = cc.ui.UIPushButton.new("NewProjectButton_zh.png")
-        :onButtonClicked(function()
-            CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_NEW_PROJECT")
-        end)
-        :pos(left, top)
-        :addTo(self)
+    -- local newProjectButton = cc.ui.UIPushButton.new("NewProjectButton_zh.png")
+    --     :onButtonClicked(function()
+    --         CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_NEW_PROJECT")
+    --     end)
+    --     :pos(left, top)
+    --     :addTo(self)
 
     local openProjectButton = cc.ui.UIPushButton.new("OpenProjectButton_zh.png")
         :onButtonClicked(function()
             CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_OPEN_PROJECT")
         end)
-        :pos(left + 200, top)
+        :pos(left + 150, top +150)
         :addTo(self)
 
-    local listSamplesButton = cc.ui.UIPushButton.new("ListSamplesButton_zh.png")
-        :onButtonClicked(function()
-            CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_LIST_SAMPLES")
-        end)
-        :pos(left + 400, top)
-        :addTo(self)
+    -- local listSamplesButton = cc.ui.UIPushButton.new("ListSamplesButton_zh.png")
+    --     :onButtonClicked(function()
+    --         CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_LIST_SAMPLES")
+    --     end)
+    --     :pos(left + 400, top)
+    --     :addTo(self)
 
-    local openCommunityButton = cc.ui.UIPushButton.new("OpenCommunityButton_zh.png")
-        :onButtonClicked(function()
-            CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_OPEN_COMMUNITY")
-        end)
-        :pos(left, top - 140)
-        :addTo(self)
+    -- local openCommunityButton = cc.ui.UIPushButton.new("OpenCommunityButton_zh.png")
+    --     :onButtonClicked(function()
+    --         CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_OPEN_COMMUNITY")
+    --     end)
+    --     :pos(left, top - 140)
+    --     :addTo(self)
 
-    local openDocumentsButton = cc.ui.UIPushButton.new("OpenDocumentsButton_zh.png")
-        :onButtonClicked(function()
-            CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_OPEN_DOCUMENTS")
-        end)
-        :pos(left + 200, top - 140)
-        :addTo(self)
+    -- local openDocumentsButton = cc.ui.UIPushButton.new("OpenDocumentsButton_zh.png")
+    --     :onButtonClicked(function()
+    --         CCNotificationCenter:sharedNotificationCenter():postNotification("WELCOME_OPEN_DOCUMENTS")
+    --     end)
+    --     :pos(left + 200, top - 140)
+    --     :addTo(self)
 end
 
 function WelcomeScene:createCopyright()
     local label = ui.newTTFLabel({
-        text = "Copyright (c) 2012-2014 chukong-inc.com, licensed under MIT.",
+        text = "Copyright KSQ",
         size = 14,
         color = ccc3(144, 144, 144),
         x = display.cx,

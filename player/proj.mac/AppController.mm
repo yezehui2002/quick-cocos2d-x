@@ -84,9 +84,9 @@ using namespace cocos2d::extra;
     [self updateProjectConfigFromCommandLineArgs:&projectConfig];
     [self createWindowAndGLView];
     [self startup];
-//    [self updateOpenRect];
-//    [self initUI];
-//    [self updateUI];
+    [self updateOpenRect];
+    [self initUI];
+    [self updateUI];
 
     [window orderFrontRegardless];
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
@@ -547,12 +547,12 @@ using namespace cocos2d::extra;
 
 - (void) welcomeSamples
 {
-//    string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
-//    if (path.length())
-//    {
-//        path.append("samples");
-//        [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding]];
-//    }
+    string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
+    if (path.length())
+    {
+        path.append("samples");
+        [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding]];
+    }
 }
 
 - (void) welcomeGetStarted

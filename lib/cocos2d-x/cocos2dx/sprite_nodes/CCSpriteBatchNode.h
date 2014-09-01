@@ -174,13 +174,15 @@ private:
     void updateAtlasIndex(CCSprite* sprite, int* curIndex);
     void swap(int oldIndex, int newIndex);
     void updateBlendFunc();
-
+    
+    
 protected:
     CCTextureAtlas *m_pobTextureAtlas;
     ccBlendFunc m_blendFunc;
 
     // all descendants: children, gran children, etc...
     CCArray* m_pobDescendants;
+    std::string m_textureName;
 };
 
 // end of sprite_nodes group

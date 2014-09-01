@@ -85,6 +85,7 @@ CCSprite* CCSprite::createWithTexture(CCTexture2D *pTexture, const CCRect& rect)
 CCSprite* CCSprite::create(const char *pszFileName)
 {
     CCSprite *pobSprite = new CCSprite();
+    //pobSprite->imageName = pszFileName;
     if (pobSprite && pobSprite->initWithFile(pszFileName))
     {
         pobSprite->autorelease();
@@ -102,6 +103,7 @@ CCSprite* CCSprite::create(const char *pszFileName, const CCRect& rect)
         pobSprite->autorelease();
         return pobSprite;
     }
+   // pobSprite->imageName = pszFileName;
     CC_SAFE_DELETE(pobSprite);
     return NULL;
 }
@@ -220,7 +222,7 @@ bool CCSprite::initWithTexture(CCTexture2D *pTexture)
 bool CCSprite::initWithFile(const char *pszFilename)
 {
     CCAssert(pszFilename != NULL, "Invalid filename for sprite");
-
+    imageName = pszFilename;
     CCTexture2D *pTexture = CCTextureCache::sharedTextureCache()->addImage(pszFilename);
     if (pTexture)
     {
@@ -237,6 +239,7 @@ bool CCSprite::initWithFile(const char *pszFilename)
 
 bool CCSprite::initWithFile(const char *pszFilename, const CCRect& rect)
 {
+    imageName = pszFilename;
     CCAssert(pszFilename != NULL, "");
 
     CCTexture2D *pTexture = CCTextureCache::sharedTextureCache()->addImage(pszFilename);
@@ -548,8 +551,11 @@ void CCSprite::updateTransform(void)
 void CCSprite::draw(void)
 {
     CC_PROFILER_START_CATEGORY(kCCProfilerCategorySprite, "CCSprite - draw");
-
-    CCAssert(!m_pobBatchNode, "If CCSprite is being rendered by CCSpriteBatchNode, CCSprite#draw SHOULD NOT be called");
+  //  cocos2d::CCLog("drwasprite  %s",imageName.c_str());
+    //CCAssert(!m_pobBatchNode, "If CCSprite is being rendered by CCSpriteBatchNode, CCSprite#draw SHOULD NOT be called");
+    if (m_pobBatchNode) {
+        cocos2d::CCLog("=========error  drwasprite m_pobBatchNode not null ==========");
+    }
 
     CC_NODE_DRAW_SETUP();
 

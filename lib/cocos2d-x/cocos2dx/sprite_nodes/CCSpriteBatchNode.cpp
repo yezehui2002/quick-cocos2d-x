@@ -51,7 +51,7 @@ CCSpriteBatchNode* CCSpriteBatchNode::createWithTexture(CCTexture2D* tex, unsign
     CCSpriteBatchNode *batchNode = new CCSpriteBatchNode();
     batchNode->initWithTexture(tex, capacity);
     batchNode->autorelease();
-
+    
     return batchNode;
 }
 
@@ -64,7 +64,6 @@ CCSpriteBatchNode* CCSpriteBatchNode::create(const char *fileImage, unsigned int
     CCSpriteBatchNode *batchNode = new CCSpriteBatchNode();
     batchNode->initWithFile(fileImage, capacity);
     batchNode->autorelease();
-
     return batchNode;
 }
 
@@ -110,6 +109,8 @@ bool CCSpriteBatchNode::init()
  */
 bool CCSpriteBatchNode::initWithFile(const char* fileImage, unsigned int capacity)
 {
+    cocos2d::CCLog("CCSpriteBatchNode initWithFile  %s",fileImage);
+    
     CCTexture2D *pTexture2D = CCTextureCache::sharedTextureCache()->addImage(fileImage);
     return initWithTexture(pTexture2D, capacity);
 }

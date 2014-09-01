@@ -504,7 +504,7 @@ CCTexture2D * CCTextureCache::addImage(const char * path)
     }
 
     CC_SAFE_RELEASE(pImage);
-
+    texture->mTextureName = pathKey;
     //pthread_mutex_unlock(m_pDictLock);
     return texture;
 }

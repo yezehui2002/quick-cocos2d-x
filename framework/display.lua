@@ -530,7 +530,11 @@ function display.newSprite(filename, x, y, params)
         if string.byte(filename) == 35 then -- first char is #
             local frame = display.newSpriteFrame(string.sub(filename, 2))
             if frame then
-                sprite = spriteClass:createWithSpriteFrame(frame)
+                if params and params.capInsets then
+                    sprite = spriteClass:createWithSpriteFrame(frame, params.capInsets)
+                else
+                    sprite = spriteClass:createWithSpriteFrame(frame)
+                end
             end
         else
             if display.TEXTURES_PIXEL_FORMAT[filename] then
@@ -538,7 +542,11 @@ function display.newSprite(filename, x, y, params)
                 sprite = spriteClass:create(filename)
                 CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
             else
-                sprite = spriteClass:create(filename)
+                if params and params.capInsets then
+                    sprite = spriteClass:createWithInsets(params.capInsets, filename)
+                else
+                    sprite = spriteClass:create(filename)
+                end
             end
         end
     elseif t == "CCSpriteFrame" then
@@ -586,8 +594,8 @@ local sprite = display.newScale9Sprite("Box.png", 0, 0, CCSize(400, 300))
 @return CCSprite9Scale CCSprite9Scale显示对象
 
 ]]
-function display.newScale9Sprite(filename, x, y, size)
-	return display.newSprite(filename, x, y, {class = CCScale9Sprite, size = size})
+function display.newScale9Sprite(filename, x, y, size, capInsets)
+	return display.newSprite(filename, x, y, {class = CCScale9Sprite, size = size, capInsets = capInsets})
 end
 
 --[[--
@@ -849,6 +857,7 @@ local shape3 = display.newRect(CCRect(50, 80, 200, 100))
 function display.newRect(width, height, params)
     local x, y = 0, 0
     if type(width) == "userdata" then
+        params = height
         local t = tolua.type(width)
         if t == "CCRect" then
             x = width.origin.x
@@ -866,7 +875,7 @@ function display.newRect(width, height, params)
 
     local rect = CCRectShape:create(CCSize(width, height))
 	local align=display.CENTER
-	if type(height) == "table" then params = hight end
+	-- if type(height) == "table" then params = hight end
 	if type(params) == "table" then
 		x = params.x or x
 		y = params.y or y

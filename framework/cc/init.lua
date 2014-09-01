@@ -43,6 +43,7 @@ local components = {
     "components.behavior.EventProtocol",
     "components.ui.BasicLayoutProtocol",
     "components.ui.LayoutProtocol",
+    "components.ui.DraggableProtocol",
 }
 for _, packageName in ipairs(components) do
     cc.Registry.add(import("." .. packageName, CURRENT_MODULE_NAME), packageName)
@@ -72,3 +73,4 @@ cc.analytics = import(".analytics.init").new()
 cc.share = import(".share.init").new()
 cc.feedback = import(".feedback.init").new()
 cc.update = import(".update.init").new()
+cc.uiloader = import(".uiloader.init").new()

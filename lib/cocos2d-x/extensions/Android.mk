@@ -177,7 +177,36 @@ LOCAL_SRC_FILES := \
     DragonBones/utils/ConstValues.cpp \
     DragonBones/utils/DBDataUtil.cpp \
     DragonBones/utils/DBGeometry.cpp \
-    DragonBones/utils/TransformUtil.cpp
+    DragonBones/utils/TransformUtil.cpp \
+    spine/spine-c/src/spine/Animation.c \
+    spine/spine-c/src/spine/AnimationState.c \
+    spine/spine-c/src/spine/AnimationStateData.c \
+    spine/spine-c/src/spine/Atlas.c \
+    spine/spine-c/src/spine/AtlasAttachmentLoader.c \
+    spine/spine-c/src/spine/Attachment.c \
+    spine/spine-c/src/spine/AttachmentLoader.c \
+    spine/spine-c/src/spine/Bone.c \
+    spine/spine-c/src/spine/BoneData.c \
+    spine/spine-c/src/spine/BoundingBoxAttachment.c \
+    spine/spine-c/src/spine/Event.c \
+    spine/spine-c/src/spine/EventData.c \
+    spine/spine-c/src/spine/extension.c \
+    spine/spine-c/src/spine/Json.c \
+    spine/spine-c/src/spine/MeshAttachment.c \
+    spine/spine-c/src/spine/RegionAttachment.c \
+    spine/spine-c/src/spine/Skeleton.c \
+    spine/spine-c/src/spine/SkeletonBounds.c \
+    spine/spine-c/src/spine/SkeletonData.c \
+    spine/spine-c/src/spine/SkeletonJson.c \
+    spine/spine-c/src/spine/Skin.c \
+    spine/spine-c/src/spine/SkinnedMeshAttachment.c \
+    spine/spine-c/src/spine/Slot.c \
+    spine/spine-c/src/spine/SlotData.c \
+    spine/spine-cocos2dx/2/src/spine/SkeletonAnimation.cpp \
+    spine/spine-cocos2dx/2/src/spine/PolygonBatch.cpp \
+    spine/spine-cocos2dx/2/src/spine/SkeletonRenderer.cpp \
+    spine/spine-cocos2dx/2/src/spine/spine-cocos2dx.cpp 
+ 
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
@@ -185,7 +214,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += cocos_lua_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_chipmunk_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static
 LOCAL_WHOLE_STATIC_LIBRARIES += libwebsockets_static
-
+LOCAL_WHOLE_STATIC_LIBRARIES += pomelo_static
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/GUI/CCControlExtension \
@@ -209,7 +238,10 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/QXPomelo/pomelo-private \
                            $(LOCAL_PATH)/QXPomelo/pomelo-protobuf \
                            $(LOCAL_PATH)/QXPomelo/pomelo-protocol \
-                           $(LOCAL_PATH)/QXPomelo/uv-private
+                           $(LOCAL_PATH)/QXPomelo/uv-private \
+                           $(LOCAL_PATH)/spine/spine-c/include/ \
+                           $(LOCAL_PATH)/spine/spine-c/src/ \
+                           $(LOCAL_PATH)/spine/spine-cocos2dx/2/src 
 
 
 LOCAL_C_INCLUDES = $(LOCAL_EXPORT_C_INCLUDES)
@@ -222,3 +254,4 @@ $(call import-module,cocos2dx)
 $(call import-module,CocosDenshion/android)
 $(call import-module,scripting/lua/proj.android)
 $(call import-module,external/libwebsockets/android)
+$(call import-module,libpomelo)

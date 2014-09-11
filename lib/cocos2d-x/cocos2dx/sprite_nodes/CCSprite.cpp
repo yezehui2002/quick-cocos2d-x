@@ -552,24 +552,24 @@ void CCSprite::draw(void)
 {
     CC_PROFILER_START_CATEGORY(kCCProfilerCategorySprite, "CCSprite - draw");
   //  cocos2d::CCLog("drwasprite  %s",imageName.c_str());
-    //CCAssert(!m_pobBatchNode, "If CCSprite is being rendered by CCSpriteBatchNode, CCSprite#draw SHOULD NOT be called");
-    if (m_pobBatchNode) {
-        if (m_pobTexture and !m_pobTexture->mTextureName.empty())
-        {
-            if (!imageName.empty())
-            {
-                cocos2d::CCLog("=========error  drwasprite m_pobBatchNode not null,sprint.texture.textureName =  %s,sprite.name = %s  ==========",m_pobTexture->mTextureName.c_str(),imageName.c_str());
-            }
-            else
-            {
-                cocos2d::CCLog("=========error  drwasprite m_pobBatchNode not null,sprite.imageName = %s ==========",imageName.c_str());
-            }
-        }
-        else
-        {
-            cocos2d::CCLog("=========error  drwasprite m_pobBatchNode not null ==========");
-        }
-    }
+    CCAssert(!m_pobBatchNode, "If CCSprite is being rendered by CCSpriteBatchNode, CCSprite#draw SHOULD NOT be called");
+//    if (m_pobBatchNode) {
+//        if (m_pobTexture and !m_pobTexture->mTextureName.empty())
+//        {
+//            if (!imageName.empty())
+//            {
+//                cocos2d::CCLog("=========error  drwasprite m_pobBatchNode not null,sprint.texture.textureName =  %s,sprite.name = %s  ==========",m_pobTexture->mTextureName.c_str(),imageName.c_str());
+//            }
+//            else
+//            {
+//                cocos2d::CCLog("=========error  drwasprite m_pobBatchNode not null,sprite.imageName = %s ==========",imageName.c_str());
+//            }
+//        }
+//        else
+//        {
+//            cocos2d::CCLog("=========error  drwasprite m_pobBatchNode not null ==========");
+//        }
+//    }
 
     CC_NODE_DRAW_SETUP();
 

@@ -109,7 +109,7 @@ bool CCSpriteBatchNode::init()
  */
 bool CCSpriteBatchNode::initWithFile(const char* fileImage, unsigned int capacity)
 {
-    cocos2d::CCLog("CCSpriteBatchNode initWithFile  %s",fileImage);
+//    cocos2d::CCLog("CCSpriteBatchNode initWithFile  %s",fileImage);
     
     CCTexture2D *pTexture2D = CCTextureCache::sharedTextureCache()->addImage(fileImage);
     return initWithTexture(pTexture2D, capacity);

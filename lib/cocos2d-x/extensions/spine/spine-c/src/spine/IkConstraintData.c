@@ -28,21 +28,19 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *****************************************************************************/
 
-#include <spine/BoneData.h>
+#include <spine/IkConstraintData.h>
 #include <spine/extension.h>
 
-spBoneData* spBoneData_create (const char* name, spBoneData* parent) {
-	spBoneData* self = NEW(spBoneData);
+spIkConstraintData* spIkConstraintData_create (const char* name) {
+	spIkConstraintData* self = NEW(spIkConstraintData);
 	MALLOC_STR(self->name, name);
-	CONST_CAST(spBoneData*, self->parent) = parent;
-	self->scaleX = 1;
-	self->scaleY = 1;
-	self->inheritScale = 1;
-	self->inheritRotation = 1;
+	self->bendDirection = 1;
+	self->mix = 1;
 	return self;
 }
 
-void spBoneData_dispose (spBoneData* self) {
+void spIkConstraintData_dispose (spIkConstraintData* self) {
 	FREE(self->name);
+	FREE(self->bones);
 	FREE(self);
 }

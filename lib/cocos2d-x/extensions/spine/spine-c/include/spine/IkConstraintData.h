@@ -28,21 +28,38 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *****************************************************************************/
 
+#ifndef SPINE_IKCONSTRAINTDATA_H_
+#define SPINE_IKCONSTRAINTDATA_H_
+
 #include <spine/BoneData.h>
-#include <spine/extension.h>
 
-spBoneData* spBoneData_create (const char* name, spBoneData* parent) {
-	spBoneData* self = NEW(spBoneData);
-	MALLOC_STR(self->name, name);
-	CONST_CAST(spBoneData*, self->parent) = parent;
-	self->scaleX = 1;
-	self->scaleY = 1;
-	self->inheritScale = 1;
-	self->inheritRotation = 1;
-	return self;
-}
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void spBoneData_dispose (spBoneData* self) {
-	FREE(self->name);
-	FREE(self);
+typedef struct spIkConstraintData spIkConstraintData;
+struct spIkConstraintData {
+	const char* const name;
+	
+	int bonesCount;
+	spBoneData** bones;
+	
+	spBoneData* target;
+	int bendDirection;
+	float mix;
+};
+
+spIkConstraintData* spIkConstraintData_create (const char* name);
+void spIkConstraintData_dispose (spIkConstraintData* self);
+
+#ifdef SPINE_SHORT_NAMES
+typedef spIkConstraintData IkConstraintData;
+#define IkConstraintData_create(...) spIkConstraintData_create(__VA_ARGS__)
+#define IkConstraintData_dispose(...) spIkConstraintData_dispose(__VA_ARGS__)
+#endif
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif /* SPINE_IKCONSTRAINTDATA_H_ */

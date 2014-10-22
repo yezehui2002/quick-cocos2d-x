@@ -28,21 +28,46 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *****************************************************************************/
 
-#include <spine/BoneData.h>
-#include <spine/extension.h>
+#ifndef SPINE_IKCONSTRAINT_H_
+#define SPINE_IKCONSTRAINT_H_
 
-spBoneData* spBoneData_create (const char* name, spBoneData* parent) {
-	spBoneData* self = NEW(spBoneData);
-	MALLOC_STR(self->name, name);
-	CONST_CAST(spBoneData*, self->parent) = parent;
-	self->scaleX = 1;
-	self->scaleY = 1;
-	self->inheritScale = 1;
-	self->inheritRotation = 1;
-	return self;
-}
+#include <spine/IkConstraintData.h>
+#include <spine/Bone.h>
 
-void spBoneData_dispose (spBoneData* self) {
-	FREE(self->name);
-	FREE(self);
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+struct spSkeleton;
+
+typedef struct spIkConstraint spIkConstraint;
+struct spIkConstraint {
+	spIkConstraintData* const data;
+	
+	int bonesCount;
+	spBone** bones;
+	
+	spBone* target;
+	int bendDirection;
+	float mix;
+};
+
+spIkConstraint* spIkConstraint_create (spIkConstraintData* data, const struct spSkeleton* skeleton);
+void spIkConstraint_dispose (spIkConstraint* self);
+
+void spIkConstraint_apply (spIkConstraint* self);
+
+void spIkConstraint_apply1 (spBone* bone, float targetX, float targetY, float alpha);
+void spIkConstraint_apply2 (spBone* parent, spBone* child, float targetX, float targetY, int bendDirection, float alpha);
+
+#ifdef SPINE_SHORT_NAMES
+typedef spIkConstraint IkConstraint;
+#define IkConstraint_create(...) spIkConstraint_create(__VA_ARGS__)
+#define IkConstraint_dispose(...) spIkConstraint_dispose(__VA_ARGS__)
+#endif
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif /* SPINE_IKCONSTRAINT_H_ */

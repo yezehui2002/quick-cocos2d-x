@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Cocos2d
-** Generated automatically by tolua++-1.0.92 on Tue Aug 26 20:13:58 2014.
+** Generated automatically by tolua++-1.0.92 on Wed Oct 22 15:56:49 2014.
 */
 
 /****************************************************************************
@@ -238,13 +238,6 @@ static int tolua_collect_DBTransform (lua_State* tolua_S)
     return 0;
 }
 
-static int tolua_collect_DBObject (lua_State* tolua_S)
-{
- DBObject* self = (DBObject*) tolua_tousertype(tolua_S,1,0);
-    Mtolua_delete(self);
-    return 0;
-}
-
 static int tolua_collect_AnimationData (lua_State* tolua_S)
 {
  AnimationData* self = (AnimationData*) tolua_tousertype(tolua_S,1,0);
@@ -252,9 +245,9 @@ static int tolua_collect_AnimationData (lua_State* tolua_S)
     return 0;
 }
 
-static int tolua_collect_cocos2d__CCRect (lua_State* tolua_S)
+static int tolua_collect_DBObject (lua_State* tolua_S)
 {
- cocos2d::CCRect* self = (cocos2d::CCRect*) tolua_tousertype(tolua_S,1,0);
+ DBObject* self = (DBObject*) tolua_tousertype(tolua_S,1,0);
     Mtolua_delete(self);
     return 0;
 }
@@ -570,7 +563,6 @@ static void tolua_reg_types (lua_State* tolua_S)
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCParticleFlower)), "CCParticleFlower");
  tolua_usertype(tolua_S,"IAnimatable");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(IAnimatable)), "IAnimatable");
- tolua_usertype(tolua_S,"cocos2d::CCRect");
  tolua_usertype(tolua_S,"CCLiquid");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCLiquid)), "CCLiquid");
  tolua_usertype(tolua_S,"CCEaseBounce");
@@ -60563,50 +60555,6 @@ static int tolua_Cocos2d_SkeletonAnimation_setScriptHandler00(lua_State* tolua_S
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* method: boundingBoxOfSlot of class  SkeletonAnimation */
-#ifndef TOLUA_DISABLE_tolua_Cocos2d_SkeletonAnimation_boundingBoxOfSlot00
-static int tolua_Cocos2d_SkeletonAnimation_boundingBoxOfSlot00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"SkeletonAnimation",0,&tolua_err) ||
-     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  SkeletonAnimation* self = (SkeletonAnimation*)  tolua_tousertype(tolua_S,1,0);
-  const char* slotName = ((const char*)  tolua_tostring(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'boundingBoxOfSlot'", NULL);
-#endif
-  {
-   cocos2d::CCRect tolua_ret = (cocos2d::CCRect)  self->boundingBoxOfSlot(slotName);
-   {
-#ifdef __cplusplus
-    void* tolua_obj = Mtolua_new((cocos2d::CCRect)(tolua_ret));
-     tolua_pushusertype(tolua_S,tolua_obj,"cocos2d::CCRect");
-    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
-#else
-    void* tolua_obj = tolua_copy(tolua_S,(void*)&tolua_ret,sizeof(cocos2d::CCRect));
-     tolua_pushusertype(tolua_S,tolua_obj,"cocos2d::CCRect");
-    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
-#endif
-   }
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'boundingBoxOfSlot'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
 /* method: new of class  QXPomelo */
 #ifndef TOLUA_DISABLE_tolua_Cocos2d_QXPomelo_new00
 static int tolua_Cocos2d_QXPomelo_new00(lua_State* tolua_S)
@@ -70742,7 +70690,6 @@ TOLUA_API int tolua_Cocos2d_open (lua_State* tolua_S)
    tolua_function(tolua_S,"setSkin",tolua_Cocos2d_SkeletonAnimation_setSkin00);
    tolua_function(tolua_S,"setTimeScale",tolua_Cocos2d_SkeletonAnimation_setTimeScale00);
    tolua_function(tolua_S,"setScriptHandler",tolua_Cocos2d_SkeletonAnimation_setScriptHandler00);
-   tolua_function(tolua_S,"boundingBoxOfSlot",tolua_Cocos2d_SkeletonAnimation_boundingBoxOfSlot00);
   tolua_endmodule(tolua_S);
   #ifdef __cplusplus
   tolua_cclass(tolua_S,"QXPomelo","QXPomelo","cocos2d::CCObject",tolua_collect_QXPomelo);

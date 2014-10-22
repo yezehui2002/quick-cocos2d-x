@@ -253,114 +253,114 @@ namespace spine {
         m_scritpHandler = handler;
     }
     
-    //<根据Slot获取包围框
-    CCRect SkeletonAnimation::boundingBoxOfSlot(const char* slotName)
-    {
-		//<在drawOrder中检索指定slot
-		spSlot **pOrder = this->skeleton->drawOrder;			//[18]
-		spSlot* target = this->findSlot(slotName), *slot = *pOrder;
-		while(slot != target)
-		{
-			pOrder =pOrder + 1;
-			slot = *pOrder;
-		}
-        
-		spRegionAttachment* attachment = (spRegionAttachment*)slot->attachment;
-		void* texture = (CCTexture2D*)((spAtlasRegion*)attachment->rendererObject)->page->rendererObject;
-        
-		//<获取region顶点
-		float worldVertices[8] = {0,0,0,0,0,0,0,0};
-		CCPoint points[4];
-		spRegionAttachment* attach = (spRegionAttachment*)slot->attachment;
-		spRegionAttachment_computeWorldVertices(attach, slot->skeleton->x, slot->skeleton->y, slot->bone, worldVertices);
-		points[0] = ccp(worldVertices[0], worldVertices[1]);
-		points[1] = ccp(worldVertices[2], worldVertices[3]);
-		points[2] = ccp(worldVertices[4], worldVertices[5]);
-		points[3] = ccp(worldVertices[6], worldVertices[7]);
-        
-		CCRect rect = CCRectMake(points[0].x, points[0].y, 0, 0);
-		for (int i = 0; i<4; i++)	//<确定原点
-		{
-			if ( points[i].x < rect.origin.x ) {	rect.origin.x = points[i].x; }
-			if ( points[i].y < rect.origin.y ) {	rect.origin.y = points[i].y; }
-		}
-        
-		for (int i = 0; i<4; i++)
-		{
-			if ( points[i].x -  rect.origin.x > rect.size.width  ) {	rect.size.width = points[i].x - rect.origin.x; }
-			if ( points[i].y -  rect.origin.y > rect.size.height ) {	rect.size.height = points[i].y - rect.origin.y; }
-		}
-        
-		//<y轴转向时按照origin不动,width翻转的原则
-		//rect.size.width = rect.size.width * getScaleX();
-		if (getScaleX() == -1)
-		{
-			rect.origin.x += rect.size.width;
-		}
-		rect.origin = this->convertToWorldSpace(rect.origin);
-        
-		//rect.origin.x = rect.origin.x *getScaleX();
-        
-		//<构造顶点,矩形
-		CCNode *pRoot = this->getParent();
-		if (!pRoot) { CCLOG("spine root node not found!"); return rect; }
-        
-        /*		CCSprite *sp = CCSprite::create("../res/Pnts.png", rect);
-         sp->setAnchorPoint(ccp(0,0));
-         sp->setPosition(ccp(rect.origin.x, rect.origin.y));
-         pRoot->getParent()->getParent()->removeChildByTag(133);
-         pRoot->getParent()->getParent()->addChild(sp,100, 133);
-         */
-		return rect;
-        
-		/*	直接使用编辑的boundingbox的方法
-         spSlot* slot = skeletonNode->findSlot("left hand");
-         spBoundingBoxAttachment* box = SUB_CAST(spBoundingBoxAttachment, slot->attachment);
-         size_t count = box->verticesCount;
-         spSlot *pOd = skeletonNode->skeleton->drawOrder[1];*/
-        
-		/*
-         spine::SkeletonAnimation* skeletonNode = dynamic_cast<spine::SkeletonAnimation*>(skNode->getChildByTag(1));
-         if (skeletonNode)
-         {
-         spSlot* slot = skeletonNode->findSlot("fist");
-         spBoundingBoxAttachment* box = SUB_CAST(spBoundingBoxAttachment, slot->attachment);
-         size_t count = box->verticesCount;
-         
-         CCSize size;
-         CCPoint orign = ccp(9999,9999), rt = ccp(-9999,-9999);
-         for(size_t i = 0; i < count; i+=2) //<(x,y)
-         {
-         printf("x: %f, y %f",box->vertices[i] , box->vertices[i+1]);
-         //<process x
-         if ( box->vertices[i] < orign.x )
-         {
-         orign.x = box->vertices[i];
-         }
-         else if( box->vertices[i] > rt.x )
-         {
-         rt.x = box->vertices[i];
-         }
-         
-         //<process y
-         if ( box->vertices[i+1] < orign.y )
-         {
-         orign.y = box->vertices[i+1];
-         }
-         else if( box->vertices[i+1] > rt.y )
-         {
-         rt.y = box->vertices[i+1];
-         }
-         }
-         CCRect rect = CCRectMake(orign.x, orign.y, rt.x - orign.x, rt.y - orign.y );
-         //这样可以获取到定点集(似乎坐标为local),接下来: 转为最大的boundingBox..
-         CCSprite *sp = CCSprite::create("../res/Pnts.png");
-         sp->setPosition(ccp(orign.x, orign.y));
-         sp->setAnchorPoint(ccp(0,0));
-         skeletonNode->addChild(sp);
-         return rect;
-         }*/
-    }
+//    //<根据Slot获取包围框
+//    CCRect SkeletonAnimation::boundingBoxOfSlot(const char* slotName)
+//    {
+//		//<在drawOrder中检索指定slot
+//		spSlot **pOrder = this->skeleton->drawOrder;			//[18]
+//		spSlot* target = this->findSlot(slotName), *slot = *pOrder;
+//		while(slot != target)
+//		{
+//			pOrder =pOrder + 1;
+//			slot = *pOrder;
+//		}
+//        
+//		spRegionAttachment* attachment = (spRegionAttachment*)slot->attachment;
+//		void* texture = (CCTexture2D*)((spAtlasRegion*)attachment->rendererObject)->page->rendererObject;
+//        
+//		//<获取region顶点
+//		float worldVertices[8] = {0,0,0,0,0,0,0,0};
+//		CCPoint points[4];
+//		spRegionAttachment* attach = (spRegionAttachment*)slot->attachment;
+//		spRegionAttachment_computeWorldVertices(attach, slot->skeleton->x, slot->skeleton->y, slot->bone, worldVertices);
+//		points[0] = ccp(worldVertices[0], worldVertices[1]);
+//		points[1] = ccp(worldVertices[2], worldVertices[3]);
+//		points[2] = ccp(worldVertices[4], worldVertices[5]);
+//		points[3] = ccp(worldVertices[6], worldVertices[7]);
+//        
+//		CCRect rect = CCRectMake(points[0].x, points[0].y, 0, 0);
+//		for (int i = 0; i<4; i++)	//<确定原点
+//		{
+//			if ( points[i].x < rect.origin.x ) {	rect.origin.x = points[i].x; }
+//			if ( points[i].y < rect.origin.y ) {	rect.origin.y = points[i].y; }
+//		}
+//        
+//		for (int i = 0; i<4; i++)
+//		{
+//			if ( points[i].x -  rect.origin.x > rect.size.width  ) {	rect.size.width = points[i].x - rect.origin.x; }
+//			if ( points[i].y -  rect.origin.y > rect.size.height ) {	rect.size.height = points[i].y - rect.origin.y; }
+//		}
+//        
+//		//<y轴转向时按照origin不动,width翻转的原则
+//		//rect.size.width = rect.size.width * getScaleX();
+//		if (getScaleX() == -1)
+//		{
+//			rect.origin.x += rect.size.width;
+//		}
+//		rect.origin = this->convertToWorldSpace(rect.origin);
+//        
+//		//rect.origin.x = rect.origin.x *getScaleX();
+//        
+//		//<构造顶点,矩形
+//		CCNode *pRoot = this->getParent();
+//		if (!pRoot) { CCLOG("spine root node not found!"); return rect; }
+//        
+//        /*		CCSprite *sp = CCSprite::create("../res/Pnts.png", rect);
+//         sp->setAnchorPoint(ccp(0,0));
+//         sp->setPosition(ccp(rect.origin.x, rect.origin.y));
+//         pRoot->getParent()->getParent()->removeChildByTag(133);
+//         pRoot->getParent()->getParent()->addChild(sp,100, 133);
+//         */
+//		return rect;
+//        
+//		/*	直接使用编辑的boundingbox的方法
+//         spSlot* slot = skeletonNode->findSlot("left hand");
+//         spBoundingBoxAttachment* box = SUB_CAST(spBoundingBoxAttachment, slot->attachment);
+//         size_t count = box->verticesCount;
+//         spSlot *pOd = skeletonNode->skeleton->drawOrder[1];*/
+//        
+//		/*
+//         spine::SkeletonAnimation* skeletonNode = dynamic_cast<spine::SkeletonAnimation*>(skNode->getChildByTag(1));
+//         if (skeletonNode)
+//         {
+//         spSlot* slot = skeletonNode->findSlot("fist");
+//         spBoundingBoxAttachment* box = SUB_CAST(spBoundingBoxAttachment, slot->attachment);
+//         size_t count = box->verticesCount;
+//         
+//         CCSize size;
+//         CCPoint orign = ccp(9999,9999), rt = ccp(-9999,-9999);
+//         for(size_t i = 0; i < count; i+=2) //<(x,y)
+//         {
+//         printf("x: %f, y %f",box->vertices[i] , box->vertices[i+1]);
+//         //<process x
+//         if ( box->vertices[i] < orign.x )
+//         {
+//         orign.x = box->vertices[i];
+//         }
+//         else if( box->vertices[i] > rt.x )
+//         {
+//         rt.x = box->vertices[i];
+//         }
+//         
+//         //<process y
+//         if ( box->vertices[i+1] < orign.y )
+//         {
+//         orign.y = box->vertices[i+1];
+//         }
+//         else if( box->vertices[i+1] > rt.y )
+//         {
+//         rt.y = box->vertices[i+1];
+//         }
+//         }
+//         CCRect rect = CCRectMake(orign.x, orign.y, rt.x - orign.x, rt.y - orign.y );
+//         //这样可以获取到定点集(似乎坐标为local),接下来: 转为最大的boundingBox..
+//         CCSprite *sp = CCSprite::create("../res/Pnts.png");
+//         sp->setPosition(ccp(orign.x, orign.y));
+//         sp->setAnchorPoint(ccp(0,0));
+//         skeletonNode->addChild(sp);
+//         return rect;
+//         }*/
+//    }
     
     void SkeletonAnimation::onTrackEntryEvent (int trackIndex, spEventType type, spEvent* event, int loopCount) {
         spTrackEntry* entry = spAnimationState_getCurrent(state, trackIndex);

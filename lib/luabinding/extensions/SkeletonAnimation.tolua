@@ -17,5 +17,4 @@ class SkeletonAnimation: public SkeletonRenderer {
         void setTimeScale(float ts);
         
         void setScriptHandler(LUA_FUNCTION handler); //<绑定lua回调
-        cocos2d::CCRect boundingBoxOfSlot(const char* slotName);
 }

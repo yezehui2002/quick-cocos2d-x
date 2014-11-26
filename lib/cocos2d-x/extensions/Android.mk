@@ -14,7 +14,82 @@ LOCAL_SRC_FILES := \
     GUI/CCEditBox/CCEditBox.cpp \
     GUI/CCEditBox/CCEditBoxImplAndroid.cpp \
     ProjectConfig/SimulatorConfig.cpp \
-    AssetsManager/AssetsManager.cpp \
+    GUI/CCControlExtension/CCControlColourPicker.cpp \
+    GUI/CCControlExtension/CCControlHuePicker.cpp \
+    GUI/CCControlExtension/CCControlPotentiometer.cpp \
+    GUI/CCControlExtension/CCControlSaturationBrightnessPicker.cpp \
+    GUI/CCControlExtension/CCControlSlider.cpp \
+    GUI/CCControlExtension/CCControlStepper.cpp \
+    GUI/CCControlExtension/CCControlSwitch.cpp \
+    GUI/CCScrollView/CCScrollView.cpp \
+    GUI/CCScrollView/CCSorting.cpp \
+    GUI/CCScrollView/CCTableView.cpp \
+    GUI/CCScrollView/CCTableViewCell.cpp \
+    network/WebSocket.cpp
+
+ifeq ($(CC_DRAGONBONES_ENABLED),1)
+LOCAL_SRC_FILES += \
+    DragonBones/animation/Animation.cpp \
+    DragonBones/animation/AnimationState.cpp \
+    DragonBones/animation/TimelineState.cpp \
+    DragonBones/Armature.cpp \
+    DragonBones/Bone.cpp \
+    DragonBones/core/DBObject.cpp \
+    DragonBones/core/DragonBones.cpp \
+    DragonBones/events/AnimationEvent.cpp \
+    DragonBones/events/ArmatureEvent.cpp \
+    DragonBones/events/Event.cpp \
+    DragonBones/events/FrameEvent.cpp \
+    DragonBones/events/SoundEvent.cpp \
+    DragonBones/events/SoundEventManager.cpp \
+    DragonBones/factories/BaseFactory.cpp \
+    DragonBones/objects/dbtinyxml2.cpp \
+    DragonBones/objects/DisplayData.cpp \
+    DragonBones/objects/TransformTimeline.cpp \
+    DragonBones/objects/XMLDataParser.cpp \
+    DragonBones/renderer/CCDBFactory.cpp \
+    DragonBones/renderer/CCDragonBones.cpp \
+    DragonBones/renderer/CCDBAtlasNode.cpp \
+    DragonBones/renderer/CCDBDisplayBridge.cpp \
+    DragonBones/renderer/CCDBManager.cpp \
+    DragonBones/renderer/CCDBTextureAtlas.cpp \
+    DragonBones/Slot.cpp \
+    DragonBones/utils/BytesType.cpp \
+    DragonBones/utils/ConstValues.cpp \
+    DragonBones/utils/DBDataUtil.cpp \
+    DragonBones/utils/DBGeometry.cpp \
+    DragonBones/utils/TransformUtil.cpp
+endif
+
+ifeq ($(CC_FILTERS_ENABLED),1)
+LOCAL_SRC_FILES += \
+    filters/filters/CCFilter.cpp \
+    filters/filters/CCBlurFilter.cpp \
+    filters/filters/CCBrightnessFilter.cpp \
+    filters/filters/CCContrastFilter.cpp \
+    filters/filters/CCDropShadowFilter.cpp \
+    filters/filters/CCExposureFilter.cpp \
+    filters/filters/CCGammaFilter.cpp \
+    filters/filters/CCGrayFilter.cpp \
+    filters/filters/CCHazeFilter.cpp \
+    filters/filters/CCHueFilter.cpp \
+    filters/filters/CCMaskFilter.cpp \
+    filters/filters/CCRGBFilter.cpp \
+    filters/filters/CCSaturationFilter.cpp \
+    filters/filters/CCSepiaFilter.cpp \
+    filters/filters/CCSharpenFilter.cpp \
+    filters/filters/CCTestFilter.cpp \
+    filters/nodes/CCFilteredSprite.cpp \
+    filters/shaders/ccFilterShaders.cpp
+endif
+
+ifeq ($(CC_CURL_ENABLED),1)
+LOCAL_SRC_FILES += \
+    AssetsManager/AssetsManager.cpp
+endif
+
+ifeq ($(CC_CCB_ENABLED),1)
+LOCAL_SRC_FILES += \
     CCBReader/CCBAnimationManager.cpp \
     CCBReader/CCBFileLoader.cpp \
     CCBReader/CCBKeyframe.cpp \
@@ -38,7 +113,11 @@ LOCAL_SRC_FILES := \
     CCBReader/CCParticleSystemQuadLoader.cpp \
     CCBReader/CCScale9SpriteLoader.cpp \
     CCBReader/CCScrollViewLoader.cpp \
-    CCBReader/CCSpriteLoader.cpp \
+    CCBReader/CCSpriteLoader.cpp
+endif
+
+ifeq ($(CC_CCSTUDIO_ENABLED),1)
+LOCAL_SRC_FILES += \
     CocoStudio/Action/CCActionEaseEx.cpp \
     CocoStudio/Action/CCActionFrame.cpp \
     CocoStudio/Action/CCActionFrameEasing.cpp \
@@ -115,106 +194,23 @@ LOCAL_SRC_FILES := \
     CocoStudio/Trigger/ObjectFactory.cpp \
     CocoStudio/Trigger/TriggerBase.cpp \
     CocoStudio/Trigger/TriggerMng.cpp \
-    CocoStudio/Trigger/TriggerObj.cpp \
-    GUI/CCControlExtension/CCControlColourPicker.cpp \
-    GUI/CCControlExtension/CCControlHuePicker.cpp \
-    GUI/CCControlExtension/CCControlPotentiometer.cpp \
-    GUI/CCControlExtension/CCControlSaturationBrightnessPicker.cpp \
-    GUI/CCControlExtension/CCControlSlider.cpp \
-    GUI/CCControlExtension/CCControlStepper.cpp \
-    GUI/CCControlExtension/CCControlSwitch.cpp \
-    GUI/CCScrollView/CCScrollView.cpp \
-    GUI/CCScrollView/CCSorting.cpp \
-    GUI/CCScrollView/CCTableView.cpp \
-    GUI/CCScrollView/CCTableViewCell.cpp \
-    filters/filters/CCFilter.cpp \
-    filters/filters/CCBlurFilter.cpp \
-    filters/filters/CCBrightnessFilter.cpp \
-    filters/filters/CCContrastFilter.cpp \
-    filters/filters/CCDropShadowFilter.cpp \
-    filters/filters/CCExposureFilter.cpp \
-    filters/filters/CCGammaFilter.cpp \
-    filters/filters/CCGrayFilter.cpp \
-    filters/filters/CCHazeFilter.cpp \
-    filters/filters/CCHueFilter.cpp \
-    filters/filters/CCMaskFilter.cpp \
-    filters/filters/CCRGBFilter.cpp \
-    filters/filters/CCSaturationFilter.cpp \
-    filters/filters/CCSepiaFilter.cpp \
-    filters/filters/CCSharpenFilter.cpp \
-    filters/filters/CCTestFilter.cpp \
-    filters/nodes/CCFilteredSprite.cpp \
-    filters/shaders/ccFilterShaders.cpp \
-    network/WebSocket.cpp \
-    QXPomelo/CCPomelo.cpp \
-    QXPomelo/QXPomelo.cpp \
-    DragonBones/animation/Animation.cpp \
-    DragonBones/animation/AnimationState.cpp \
-    DragonBones/animation/TimelineState.cpp \
-    DragonBones/Armature.cpp \
-    DragonBones/Bone.cpp \
-    DragonBones/core/DBObject.cpp \
-    DragonBones/core/DragonBones.cpp \
-    DragonBones/events/AnimationEvent.cpp \
-    DragonBones/events/ArmatureEvent.cpp \
-    DragonBones/events/Event.cpp \
-    DragonBones/events/FrameEvent.cpp \
-    DragonBones/events/SoundEvent.cpp \
-    DragonBones/events/SoundEventManager.cpp \
-    DragonBones/factories/BaseFactory.cpp \
-    DragonBones/objects/dbtinyxml2.cpp \
-    DragonBones/objects/DisplayData.cpp \
-    DragonBones/objects/TransformTimeline.cpp \
-    DragonBones/objects/XMLDataParser.cpp \
-    DragonBones/renderer/CCDBFactory.cpp \
-    DragonBones/renderer/CCDragonBones.cpp \
-    DragonBones/renderer/CCDBAtlasNode.cpp \
-    DragonBones/renderer/CCDBDisplayBridge.cpp \
-    DragonBones/renderer/CCDBManager.cpp \
-    DragonBones/renderer/CCDBTextureAtlas.cpp \
-    DragonBones/Slot.cpp \
-    DragonBones/utils/BytesType.cpp \
-    DragonBones/utils/ConstValues.cpp \
-    DragonBones/utils/DBDataUtil.cpp \
-    DragonBones/utils/DBGeometry.cpp \
-    DragonBones/utils/TransformUtil.cpp \
-    spine/spine-c/src/spine/Animation.c \
-    spine/spine-c/src/spine/AnimationState.c \
-    spine/spine-c/src/spine/AnimationStateData.c \
-    spine/spine-c/src/spine/Atlas.c \
-    spine/spine-c/src/spine/AtlasAttachmentLoader.c \
-    spine/spine-c/src/spine/Attachment.c \
-    spine/spine-c/src/spine/AttachmentLoader.c \
-    spine/spine-c/src/spine/Bone.c \
-    spine/spine-c/src/spine/BoneData.c \
-    spine/spine-c/src/spine/BoundingBoxAttachment.c \
-    spine/spine-c/src/spine/Event.c \
-    spine/spine-c/src/spine/EventData.c \
-    spine/spine-c/src/spine/extension.c \
-    spine/spine-c/src/spine/Json.c \
-    spine/spine-c/src/spine/MeshAttachment.c \
-    spine/spine-c/src/spine/RegionAttachment.c \
-    spine/spine-c/src/spine/Skeleton.c \
-    spine/spine-c/src/spine/SkeletonBounds.c \
-    spine/spine-c/src/spine/SkeletonData.c \
-    spine/spine-c/src/spine/SkeletonJson.c \
-    spine/spine-c/src/spine/Skin.c \
-    spine/spine-c/src/spine/SkinnedMeshAttachment.c \
-    spine/spine-c/src/spine/Slot.c \
-    spine/spine-c/src/spine/SlotData.c \
-    spine/spine-cocos2dx/2/src/spine/SkeletonAnimation.cpp \
-    spine/spine-cocos2dx/2/src/spine/PolygonBatch.cpp \
-    spine/spine-cocos2dx/2/src/spine/SkeletonRenderer.cpp \
-    spine/spine-cocos2dx/2/src/spine/spine-cocos2dx.cpp 
- 
+    CocoStudio/Trigger/TriggerObj.cpp
+endif
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_lua_static
+
+ifeq ($(CC_PHYSICS_ENABLED),1)
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_chipmunk_static
+endif
+
+ifeq ($(CC_CURL_ENABLED),1)
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static
+endif
+
 LOCAL_WHOLE_STATIC_LIBRARIES += libwebsockets_static
-LOCAL_WHOLE_STATIC_LIBRARIES += pomelo_static
+
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/GUI/CCControlExtension \
@@ -233,15 +229,7 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/CCArmature/external_tool/Json/lib_json \
                            $(LOCAL_PATH)/CCArmature/utils \
                            $(LOCAL_PATH)/filters \
-                           $(LOCAL_PATH)/DragonBones \
-                           $(LOCAL_PATH)/QXPomelo \
-                           $(LOCAL_PATH)/QXPomelo/pomelo-private \
-                           $(LOCAL_PATH)/QXPomelo/pomelo-protobuf \
-                           $(LOCAL_PATH)/QXPomelo/pomelo-protocol \
-                           $(LOCAL_PATH)/QXPomelo/uv-private \
-                           $(LOCAL_PATH)/spine/spine-c/include/ \
-                           $(LOCAL_PATH)/spine/spine-c/src/ \
-                           $(LOCAL_PATH)/spine/spine-cocos2dx/2/src 
+                           $(LOCAL_PATH)/DragonBones
 
 
 LOCAL_C_INCLUDES = $(LOCAL_EXPORT_C_INCLUDES)
@@ -254,4 +242,3 @@ $(call import-module,cocos2dx)
 $(call import-module,CocosDenshion/android)
 $(call import-module,scripting/lua/proj.android)
 $(call import-module,external/libwebsockets/android)
-$(call import-module,libpomelo)

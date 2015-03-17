@@ -146,6 +146,16 @@ ActionObject* ActionManager::playActionByName(const char* jsonName,const char* a
 	return action;
 }
 
+ActionObject* ActionManager::playActionByNameAndFunc(const char* jsonName,const char* actionName, int handler){
+    CCCallFunc* func = (CCCallFunc*)  CCCallFunc::create(handler);
+    ActionObject* action = getActionByName(jsonName,actionName);
+    if (func)
+    {
+        action->play(func);
+    }
+    return action;
+}
+
 void ActionManager::releaseActions()
 {
     m_pActionDic->removeAllObjects();

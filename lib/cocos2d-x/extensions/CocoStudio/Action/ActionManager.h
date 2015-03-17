@@ -93,6 +93,7 @@ public:
 	* @param func ui action call back
 	*/
 	ActionObject* playActionByName(const char* jsonName,const char* actionName, CCCallFunc* func);
+    ActionObject* playActionByNameAndFunc(const char* jsonName,const char* actionName, int handler);
 
 	/*init properties with json dictionay*/
 	void initWithDictionary(const char* jsonName,const rapidjson::Value &dic,CCObject* root);

@@ -8,5 +8,6 @@ class ActionManager:public CCObject
    static void purge();
    ActionObject* getActionByName(const char* jsonName,const char* actionName);
    ActionObject* playActionByName(const char* jsonName,const char* actionName);
+   ActionObject* playActionByNameAndFunc(const char* jsonName,const char* actionName, LUA_FUNCTION handler);
    void releaseActions();
 };

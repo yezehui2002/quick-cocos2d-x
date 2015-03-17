@@ -1,6 +1,6 @@
 /*
 ** Lua binding: CocoStudio
-** Generated automatically by tolua++-1.0.92 on Wed Oct 22 00:36:42 2014.
+** Generated automatically by tolua++-1.0.92 on Mon Mar  2 20:48:48 2015.
 */
 
 /****************************************************************************
@@ -428,24 +428,25 @@ static void tolua_reg_types (lua_State* tolua_S)
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(RichText)), "RichText");
  tolua_usertype(tolua_S,"TextField");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(TextField)), "TextField");
- tolua_usertype(tolua_S,"CCBlendProtocol");
- toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCBlendProtocol)), "CCBlendProtocol");
  tolua_usertype(tolua_S,"Frame");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(Frame)), "Frame");
+ tolua_usertype(tolua_S,"CCBlendProtocol");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCBlendProtocol)), "CCBlendProtocol");
+ tolua_usertype(tolua_S,"Timeline");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(Timeline)), "Timeline");
  tolua_usertype(tolua_S,"NodeReader");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(NodeReader)), "NodeReader");
  tolua_usertype(tolua_S,"CCTween");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCTween)), "CCTween");
  tolua_usertype(tolua_S,"CCBaseData");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCBaseData)), "CCBaseData");
- tolua_usertype(tolua_S,"Timeline");
- toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(Timeline)), "Timeline");
- tolua_usertype(tolua_S,"CCArmatureDataManager");
- toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCArmatureDataManager)), "CCArmatureDataManager");
  tolua_usertype(tolua_S,"RichElementImage");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(RichElementImage)), "RichElementImage");
+ tolua_usertype(tolua_S,"CCArmatureDataManager");
+ toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCArmatureDataManager)), "CCArmatureDataManager");
  tolua_usertype(tolua_S,"RichElementText");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(RichElementText)), "RichElementText");
+ tolua_usertype(tolua_S,"LUA_FUNCTION");
  tolua_usertype(tolua_S,"CCObject");
  toluafix_add_type_mapping(CLASS_HASH_CODE(typeid(CCObject)), "CCObject");
  tolua_usertype(tolua_S,"CCRect");
@@ -23924,6 +23925,46 @@ static int tolua_CocoStudio_ActionManager_playActionByName00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: playActionByNameAndFunc of class  ActionManager */
+#ifndef TOLUA_DISABLE_tolua_CocoStudio_ActionManager_playActionByNameAndFunc00
+static int tolua_CocoStudio_ActionManager_playActionByNameAndFunc00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"ActionManager",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isstring(tolua_S,3,0,&tolua_err) ||
+     (tolua_isvaluenil(tolua_S,4,&tolua_err) || !toluafix_isfunction(tolua_S,4,"LUA_FUNCTION",0,&tolua_err)) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  ActionManager* self = (ActionManager*)  tolua_tousertype(tolua_S,1,0);
+  const char* jsonName = ((const char*)  tolua_tostring(tolua_S,2,0));
+  const char* actionName = ((const char*)  tolua_tostring(tolua_S,3,0));
+  LUA_FUNCTION handler = (  toluafix_ref_function(tolua_S,4,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'playActionByNameAndFunc'", NULL);
+#endif
+  {
+   ActionObject* tolua_ret = (ActionObject*)  self->playActionByNameAndFunc(jsonName,actionName,handler);
+    int nID = (tolua_ret) ? (int)tolua_ret->m_uID : -1;
+    int* pLuaID = (tolua_ret) ? &tolua_ret->m_nLuaID : NULL;
+    toluafix_pushusertype_ccobject(tolua_S, nID, pLuaID, (void*)tolua_ret,"ActionObject");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'playActionByNameAndFunc'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: releaseActions of class  ActionManager */
 #ifndef TOLUA_DISABLE_tolua_CocoStudio_ActionManager_releaseActions00
 static int tolua_CocoStudio_ActionManager_releaseActions00(lua_State* tolua_S)
@@ -29572,6 +29613,7 @@ TOLUA_API int tolua_CocoStudio_open (lua_State* tolua_S)
    tolua_function(tolua_S,"purge",tolua_CocoStudio_ActionManager_purge00);
    tolua_function(tolua_S,"getActionByName",tolua_CocoStudio_ActionManager_getActionByName00);
    tolua_function(tolua_S,"playActionByName",tolua_CocoStudio_ActionManager_playActionByName00);
+   tolua_function(tolua_S,"playActionByNameAndFunc",tolua_CocoStudio_ActionManager_playActionByNameAndFunc00);
    tolua_function(tolua_S,"releaseActions",tolua_CocoStudio_ActionManager_releaseActions00);
   tolua_endmodule(tolua_S);
   tolua_constant(tolua_S,"ATTACH_EMPTY_NODE",ATTACH_EMPTY_NODE);
